@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="es" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1d23"><meta name="description" content="50 algoritmos fundamentales: sus ideas, autores, historia, complejidad y publicaciones. Una colección académica para explorar y enseñar."><title>Atlas de Algoritmos · Ideas, autores y artículos</title><style>
+:root{--bg:#0b1d23;--surface:#10262d;--surface2:#152e35;--ink:#edf0e7;--muted:#9caeb1;--accent:#a1dfc9;--line:#2b4147;--gold:#e2be7c;--shadow:0 32px 100px #0008;color-scheme:dark}html[data-theme=light]{--bg:#f6f5ef;--surface:#fffef8;--surface2:#eeeee4;--ink:#172f35;--muted:#536a70;--accent:#17634e;--line:#d6ded4;--gold:#946222;--shadow:0 28px 90px #18352d33;color-scheme:light}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.65}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:5px}button{border:0}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-weight:400}h1,h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.045em}em{font-weight:400;color:var(--accent)}.wrap{max-width:1320px;width:calc(100% - 112px);margin:auto}.masthead{display:flex;align-items:center;justify-content:space-between;min-height:106px;border-bottom:1px solid var(--line);gap:24px}.brand{display:flex;align-items:center;gap:14px;font-size:19px;font-weight:650;letter-spacing:-.045em;line-height:1.25;white-space:nowrap}.brand svg{color:var(--accent)}.brand small{display:block;font-size:9px;font-weight:400;letter-spacing:.24em;margin-top:7px;color:var(--muted)}nav{display:flex;gap:32px;margin-left:auto;font-size:13px;color:var(--muted)}nav a:hover{color:var(--accent)}.iconbutton{display:inline-grid;place-items:center;border:1px solid var(--line);background:transparent;border-radius:50%;width:36px;height:36px;font-size:19px;flex-shrink:0}.iconbutton:hover{border-color:var(--accent);color:var(--accent)}.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;padding-top:86px;padding-bottom:65px;align-items:center}.eyebrow{font-size:10px;letter-spacing:.17em;color:var(--accent);font-weight:600;margin-bottom:26px;display:flex;align-items:center;gap:12px}.eyebrow span{width:23px;height:1px;background:var(--accent)}h1{font-size:clamp(48px,4.7vw,72px);line-height:1.02;margin-bottom:30px}h1 em{white-space:nowrap}.lede{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:32px}.button{display:inline-flex;align-items:center;gap:30px;justify-content:space-between;border-radius:30px;padding:14px 23px;font-size:12px;font-weight:600;line-height:1.5;white-space:nowrap}.primary{background:var(--accent);color:var(--bg)}.button:hover{transform:translateY(-2px)}.button span{font-size:19px;font-weight:400}.byline{margin-top:19px;margin-bottom:0;font-size:10px;color:var(--muted)}.hero-figure{min-width:0}.figure-top{display:flex;justify-content:flex-end;align-items:center;gap:16px}.pill{font-size:9px;letter-spacing:.1em;border:1px solid var(--line);border-radius:30px;padding:6px 12px;color:var(--accent)}.pill i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-right:5px}.textbutton{background:none;color:var(--muted);padding:4px 0;font-size:11px}.textbutton:hover{color:var(--accent)}.hero-graph{display:block;width:100%;height:340px;background:radial-gradient(ellipse at center,#20414a88,transparent 72%);padding:0;position:relative;margin-top:22px}.hero-graph svg{width:100%;height:340px;display:block}.figure-caption{text-align:right;padding-right:15px}.figure-caption span{display:block;letter-spacing:.16em;font-size:8px;color:var(--muted)}.figure-caption strong{display:block;font-weight:400;font-size:12px;margin-top:5px}.figure-caption p{font-size:10px;color:var(--muted);margin:5px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.stats>div{display:flex;gap:16px;align-items:center;padding:0 30px;border-left:1px solid var(--line)}.stats>div:first-child{padding-left:0;border:0}.stats strong{font:40px/1 Georgia,serif;letter-spacing:-.06em}.stats span{font-size:11px;line-height:1.6;color:var(--muted)}.collection{padding-top:78px}.section-top{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:37px}.section-top .eyebrow{margin-bottom:16px}h2{font-size:45px;line-height:1.1;margin-bottom:0}.section-top>p{font-size:12px;color:var(--muted);margin-bottom:0}.searchline{display:flex;gap:16px}.search{display:flex;align-items:center;border-bottom:1px solid var(--line);flex:1;gap:15px}.search>span{font-size:30px;color:var(--accent);line-height:1}.search input{background:transparent;border:0;width:100%;padding:12px 0;color:var(--ink);font-size:14px;min-width:0}.search input::placeholder{color:var(--muted)}.subtle{border:1px solid var(--line);background:transparent;color:var(--ink)}.categories{display:flex;flex-wrap:wrap;gap:7px;padding:25px 0 20px}.chip{border:1px solid var(--line);border-radius:24px;padding:7px 13px;font-size:10px;background:transparent;color:var(--muted)}.chip span{opacity:.7;margin-left:7px}.chip.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}.chip:hover{border-color:var(--accent)}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:18px 0 12px}.toolbar p{font-size:10px;letter-spacing:.08em;color:var(--muted);margin:0;text-transform:uppercase}.toolbar-actions{display:flex;gap:13px;align-items:center}.toolbar select{border:0;background:transparent;color:var(--muted);max-width:180px;font-size:11px;padding:4px}.view-switch{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}.view-switch button{font-size:19px;line-height:1;background:transparent;color:var(--muted);padding:7px 10px}.view-switch .selected{background:var(--surface2);color:var(--accent)}.collection-extras{display:flex;gap:22px;padding-bottom:25px;align-items:center}.collection-extras button:last-child{margin-left:auto}.collection-extras button[aria-pressed=true]{color:var(--accent)}#favCount{border:1px solid var(--line);font-size:9px;padding:1px 5px;border-radius:10px;margin-left:5px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.card{position:relative;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:5px;overflow:hidden;transition:transform .25s,border-color .25s}.card:hover{transform:translateY(-4px);border-color:#72ac9c}.card-art{height:164px;position:relative;overflow:hidden;display:block;width:100%;padding:0;background:var(--surface2);color:var(--accent)}.card-art svg{width:100%;height:100%;display:block;transition:transform .5s}.card:hover .card-art svg{transform:scale(1.045)}.artmeta{position:absolute;left:17px;right:17px;top:12px;display:flex;justify-content:space-between;font-size:8px;color:var(--muted);letter-spacing:.13em}.card-fav{position:absolute;right:15px;top:173px;z-index:1;background:transparent;color:var(--muted);font-size:22px;padding:0 2px}.card-fav.on{color:var(--gold)}.card-content{padding:18px 19px 15px}.card-kicker{font-size:8px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;padding-right:18px;min-height:15px}.card h3{font:25px/1.12 Georgia,serif;margin:10px 0 12px;letter-spacing:-.035em}.card h3 button{background:none;text-align:left;padding:0;color:var(--ink);font:inherit}.card .tag{font-size:12px;color:var(--muted);line-height:1.65;min-height:40px;margin:0 0 16px}.author{display:flex;align-items:center;gap:10px;font-size:10px;color:var(--muted);min-height:38px}.avatar{position:relative;display:inline-flex;align-items:center;justify-content:center;background:var(--surface2);width:34px;height:34px;border-radius:50%;font-size:9px;color:var(--accent);flex-shrink:0;overflow:hidden}.avatar img{position:absolute;width:100%;height:100%;object-fit:cover;filter:grayscale(1);left:0;top:0;background:var(--surface2)}.author>span:last-child{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.card-bottom{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);margin-top:17px;padding-top:12px;align-items:center}.paper-link{font-size:10px;color:var(--muted)}.paper-link:hover{color:var(--accent)}.explore{background:none;color:var(--accent);font-size:10px;padding:0}.demo-badge{position:absolute;bottom:9px;left:16px;border:1px solid #8fbba577;color:var(--accent);background:var(--bg);border-radius:12px;padding:2px 7px;font-size:8px;letter-spacing:.04em}.cards.timeline{display:block;border-left:1px solid var(--line);margin-left:7px;padding-left:30px}.timeline .card{display:grid;grid-template-columns:195px 1fr;margin-bottom:18px;overflow:visible}.timeline .card:before{content:'';position:absolute;width:7px;height:7px;background:var(--accent);border-radius:50%;top:30px;left:-35px}.timeline .card-art{height:100%;min-height:180px;border-radius:5px 0 0 5px}.timeline .card-fav{top:14px}.timeline .card-content{padding:18px 25px}.timeline .card h3{margin:7px 0}.timeline .tag{min-height:0;margin-bottom:10px}.timeline .card-bottom{margin-top:12px;padding-top:8px}.empty{text-align:center;padding:70px 20px;border:1px solid var(--line)}.empty h3{font:28px Georgia,serif}.empty p{color:var(--muted)}.routes{padding-top:110px}.routes>.eyebrow{margin-bottom:15px}.route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}.route{border-top:1px solid var(--line);padding:24px 0;background:none;text-align:left}.route>span{font-size:9px;letter-spacing:.12em;color:var(--accent)}.route h3{font:29px/1.18 Georgia,serif;letter-spacing:-.025em;margin:23px 0 18px}.route p{font-size:12px;color:var(--muted);line-height:1.9;min-height:48px;padding-right:25px}.route b{font-size:10px;font-weight:400;color:var(--accent)}.route:hover{border-color:var(--accent)}.about{display:grid;grid-template-columns:1fr 1fr;gap:100px;padding-top:90px;padding-bottom:80px;border-top:1px solid var(--line);margin-top:65px}.about h2{font-size:39px}.about>div>p:last-child{font-size:13px;line-height:1.9;color:var(--muted);max-width:350px;margin-top:28px}.criteria article{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:20px}.criteria article:last-child{border:0;margin-bottom:0;padding-bottom:0}.criteria b{font-weight:500;font-size:13px}.criteria p{font-size:11px;color:var(--muted);line-height:1.9;margin:8px 0 0}footer{border-top:1px solid var(--line);padding:25px 0 30px;display:flex;justify-content:space-between;gap:25px;align-items:center}footer .brand{font-size:12px;display:block}footer .brand small{font-size:7px;letter-spacing:.16em}footer p,footer>a:last-child{font-size:9px;color:var(--muted);margin:0}dialog{width:min(980px,calc(100vw - 40px));max-height:92vh;padding:0;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:9px;box-shadow:var(--shadow);overflow:auto}dialog::backdrop{background:#020e15c9;backdrop-filter:blur(7px)}.dialog-top{position:sticky;top:0;z-index:4;padding:16px 26px;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.dialog-top>span{font-size:9px;letter-spacing:.12em;color:var(--accent)}.dialog-top>div{display:flex;gap:8px}.detail-main{padding:34px 42px 40px}.detail-head{display:grid;grid-template-columns:1fr 150px;gap:24px;align-items:start}.detail-head h2{font-size:48px;margin:0 0 13px}.detail-head .tag{font-size:15px;color:var(--muted);line-height:1.6;max-width:580px}.detail-portrait{text-align:center}.detail-portrait .avatar{width:91px;height:91px;font-size:25px}.detail-portrait small{display:block;font-size:9px;color:var(--muted);line-height:1.4;margin:8px 0}.detail-portrait a{font-size:8px;color:var(--accent);text-decoration:underline}.detail-authors{font-size:13px;color:var(--accent);margin:20px 0 25px;max-width:650px;line-height:1.7}.detail-fields{display:grid;grid-template-columns:1fr 1fr;gap:25px 35px}.detail-fields h3,.sourcebox h3,.demo h3{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:500;margin:0 0 9px}.detail-fields p{font-size:13px;color:var(--muted);line-height:1.85;margin:0}.detail-fields .wide{grid-column:1/-1}.cost{border-left:2px solid var(--accent);padding:12px 16px;background:var(--surface)}.cost p{color:var(--ink)}.history{border-top:1px solid var(--line);padding-top:24px}.example{background:var(--surface);padding:19px 21px;border-radius:4px}.example p{color:var(--ink)}.sourcebox{border:1px solid var(--line);border-radius:4px;padding:21px;margin-top:28px}.sourcebox p{font-size:12px;line-height:1.8;color:var(--muted);margin:0 0 16px}.sourcebox .source-type{font-size:8px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.source-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.source-actions a{font-size:11px;color:var(--accent)}.question{display:flex;gap:18px;padding:22px 0 0;align-items:baseline}.question>b{font:italic 32px Georgia,serif;color:var(--accent)}.question p{font-size:13px;line-height:1.7;margin:0}.dialog-bottom{display:flex;justify-content:space-between;gap:20px;padding:15px 26px;border-top:1px solid var(--line);background:var(--surface)}.dialog-bottom>span{font-size:10px;color:var(--muted)}.demo{border:1px solid var(--line);border-radius:5px;padding:20px;margin-bottom:28px}.demo h3{margin-bottom:15px}.demo-display{height:160px;display:flex;gap:9px;align-items:end;justify-content:center;background:var(--surface);padding:18px 18px 8px;border-radius:3px;overflow:hidden}.demo-display svg{width:100%;height:100%}.demo-display .bar{flex:1;max-width:50px;background:#4c727b;border-radius:3px 3px 0 0;position:relative;min-height:20px;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:11px;transition:height .35s,background .3s}.demo-display .bar.active{background:var(--accent);color:var(--bg)}.demo-display .bar.done{background:#648e80}.demo-display .num{padding:9px 12px;border:1px solid var(--line);font-size:14px}.demo-display .num.active{background:var(--accent);color:var(--bg)}.demo-display.numbers{align-items:center;flex-wrap:wrap;gap:6px;height:auto;min-height:160px;padding-bottom:18px}.demo-display .num.out{opacity:.22;text-decoration:line-through}.demo-controls{display:flex;align-items:center;gap:14px;margin-top:13px;flex-wrap:wrap}.demo-controls button{border:1px solid var(--line);border-radius:20px;background:none;padding:5px 12px;font-size:10px}.demo-controls label{font-size:10px;color:var(--muted)}.demo-controls select{font-size:10px;background:var(--bg);border:1px solid var(--line);padding:4px}.demo-explain{margin:13px 0 0;font-size:11px;color:var(--muted);line-height:1.8;min-height:36px}.demo-progress{font-size:9px;color:var(--muted);margin-left:auto}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:fixed;left:20px;top:-100px;z-index:100;background:var(--accent);color:var(--bg);padding:10px 20px}.skip:focus{top:10px}#toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--accent);color:var(--bg);padding:10px 20px;border-radius:25px;font-size:12px;z-index:100;transition:.25s}#toast.show{opacity:1;transform:translate(-50%,0)}button:disabled{opacity:.4;cursor:default}@media(min-width:1500px){.hero{padding-top:110px;padding-bottom:85px}.hero-graph,.hero-graph svg{height:390px}h1{font-size:78px}}@media(max-width:1100px){.wrap{width:calc(100% - 64px)}.hero{gap:18px}h1{font-size:56px}.stats>div{padding:0 20px;gap:12px}.stats strong{font-size:34px}.cards{gap:17px}.card h3{font-size:23px}.about{gap:50px}.toolbar{align-items:start}.toolbar-actions{gap:5px}.toolbar select{max-width:150px}.hero-graph,.hero-graph svg{height:310px}.detail-head h2{font-size:43px}}@media(max-width:800px){.wrap{width:calc(100% - 42px)}.masthead{min-height:85px}.brand{font-size:15px;gap:8px}.brand small{font-size:7px}nav{gap:17px;font-size:11px}nav a:last-child{display:none}.hero{grid-template-columns:1fr 1fr;padding-top:55px;padding-bottom:45px}.hero .eyebrow{font-size:8px;letter-spacing:.1em}.hero h1{font-size:45px}.lede{font-size:12px}.hero-graph,.hero-graph svg{height:250px}.figure-top{gap:8px}.figure-top .pill{font-size:7px;padding:5px 8px}.figure-top .textbutton{font-size:9px}.figure-caption{padding:0}.figure-caption p{font-size:8px}.stats>div{padding:0 12px;gap:10px}.stats strong{font-size:29px}.stats span{font-size:9px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.section-top h2{font-size:37px}.section-top>p{font-size:11px}.toolbar{flex-wrap:wrap;gap:12px}.toolbar-actions{margin-left:auto}.route-grid{gap:18px}.route h3{font-size:24px}.about{gap:35px}.about h2{font-size:33px}footer{flex-wrap:wrap}.detail-main{padding:28px}.detail-head h2{font-size:38px}.detail-head{grid-template-columns:1fr 100px}.detail-fields{gap:23px}.detail-head .tag{font-size:13px}}@media(max-width:560px){.wrap{width:calc(100% - 36px)}.masthead{gap:12px}.masthead nav a{font-size:10px}.masthead nav a:nth-child(2){display:none}.masthead nav{gap:0}.brand{font-size:13px;gap:7px}.brand svg{width:29px;height:29px}.brand small{font-size:6px;letter-spacing:.14em}.iconbutton{width:32px;height:32px}.hero{display:block;padding-top:40px;padding-bottom:28px}.hero h1{font-size:55px;line-height:1.04}.hero .eyebrow{font-size:8px;margin-bottom:24px}.lede{font-size:13px}.desktop{display:none}.hero-figure{margin-top:38px}.hero-graph,.hero-graph svg{height:265px}.figure-caption{margin-top:8px}.figure-top{justify-content:space-between}.figure-caption p{font-size:10px}.figure-top .pill{font-size:8px}.stats{grid-template-columns:1fr 1fr;padding:0}.stats>div{padding:20px 15px!important;border-bottom:1px solid var(--line);gap:16px}.stats>div:nth-child(3){border-left:0;border-bottom:0}.stats>div:nth-child(4){border-bottom:0}.stats strong{font-size:35px}.stats span{font-size:10px}.collection{padding-top:48px}.section-top{display:block;margin-bottom:26px}.section-top>p{margin-top:18px;font-size:12px}h2,.section-top h2{font-size:38px}.searchline{gap:8px}.search input{font-size:12px}.search{gap:8px}.searchline .button{font-size:9px;padding:9px 11px;gap:5px}.searchline .button span{font-size:15px}.categories{gap:6px;padding:21px 0}.chip{font-size:9px;padding:6px 9px}.toolbar{gap:10px}.toolbar-actions{width:100%;justify-content:space-between;margin-left:0}.toolbar select{max-width:150px;font-size:10px}.collection-extras{gap:12px;flex-wrap:wrap;padding-bottom:20px}.collection-extras .textbutton{font-size:9px}.collection-extras button:last-child{margin:0}.cards{grid-template-columns:1fr;gap:19px}.card-art{height:174px}.card-fav{top:186px}.card h3{font-size:29px}.card .tag{min-height:0;font-size:13px}.card-content{padding:19px 21px}.card-kicker{font-size:9px}.author{font-size:11px}.card-bottom{padding-top:15px}.paper-link,.explore{font-size:11px}.cards.timeline{padding-left:18px}.timeline .card{grid-template-columns:1fr}.timeline .card:before{left:-23px}.timeline .card-art{height:130px;min-height:130px}.timeline .card-content{padding:18px}.timeline .card-fav{top:143px}.route-grid{grid-template-columns:1fr}.route{padding-bottom:10px}.route h3{font-size:29px;margin:15px 0}.route p{min-height:0}.routes{padding-top:65px}.about{grid-template-columns:1fr;gap:32px;padding-top:50px;padding-bottom:40px;margin-top:40px}.about h2{font-size:36px}footer{gap:18px}footer p{order:3;width:100%}.detail-main{padding:24px 20px}.detail-head{grid-template-columns:1fr 75px;gap:13px}.detail-head h2{font-size:34px}.detail-portrait .avatar{width:65px;height:65px;font-size:20px}.detail-portrait small{font-size:8px}.detail-fields{grid-template-columns:1fr}.detail-fields>div{grid-column:1}.detail-authors{font-size:11px}.dialog-top{padding:13px 16px}.dialog-top>span{font-size:8px}.sourcebox{padding:17px}.source-actions{gap:14px}.demo{padding:14px}.demo-display{gap:5px;padding-left:8px;padding-right:8px}.demo-display .num{padding:7px 9px;font-size:11px}.demo-controls{gap:8px}.demo-controls button{font-size:9px;padding:5px 9px}.demo-progress{font-size:8px}.dialog-bottom{padding:14px 17px}.dialog-bottom .textbutton{font-size:10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}@media print{body{--bg:white;--surface:#f5f5f5;--surface2:#eee;--ink:#111;--muted:#333;--accent:#174e3e;--line:#ccc;background:white;color:black}body:has(dialog[open])>header,body:has(dialog[open])>main,body:has(dialog[open])>.skip,body:has(dialog[open])>#toast{display:none}dialog[open]{position:static;max-height:none;width:100%;border:0;box-shadow:none;overflow:visible}.dialog-top,.dialog-bottom,.demo,.source-actions button,.detail-portrait{display:none}.detail-head{display:block}.detail-main{padding:0}.detail-fields{break-inside:avoid}.source-actions a:after{content:' (' attr(href) ')';font-size:9px}.cards{grid-template-columns:repeat(2,1fr)}.card{break-inside:avoid}.masthead nav,.searchline,.categories,.toolbar,.collection-extras,.routes{display:none}}
+
+.demo-display.graph{height:280px;padding:14px}.demo-display.graph svg{width:100%;height:100%}@media(max-width:560px){.demo-display.graph{height:215px;padding:5px}}
+html[data-theme=light] .hero-graph{background:radial-gradient(ellipse at center,#234954,#102c34 75%);border-radius:8px}html[data-theme=light] .card-art,html[data-theme=light] .demo-display{background:#15333c}.artmeta{color:#9bb5b8}html[data-theme=light] .demo-display .bar,html[data-theme=light] .demo-display .num{color:#edf0e7}html[data-theme=light] .demo-display .num{border-color:#446068}html[data-theme=light] .demo-display .active{background:#a1dfc9;color:#102c34}html[data-theme=light] .card-art .demo-badge{background:#e6f0e9;color:#17634e}
+
+</style></head>
+<body><a class="skip" href="#coleccion">Saltar a la colección</a>
+<header class="masthead wrap"><a class="brand" href="#inicio" aria-label="Atlas de Algoritmos, inicio"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><path d="M6 30L19 7l14 23M12 20h14M9 31h22" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="19" cy="7" r="3" fill="currentColor"/><circle cx="6" cy="30" r="3" fill="currentColor"/><circle cx="33" cy="30" r="3" fill="currentColor"/></svg><span>ATLAS DE ALGORITMOS<small>IDEAS, AUTORES Y ARTÍCULOS</small></span></a><nav aria-label="Principal"><a href="#coleccion">Explorar</a><a href="#recorrido">Recorridos</a><a href="#criterios">La colección</a></nav><button id="theme" class="iconbutton" aria-label="Cambiar a tema claro" title="Cambiar tema">☼</button></header>
+<main id="inicio">
+<section class="hero wrap"><div class="hero-copy"><p class="eyebrow"><span></span> UNA BIBLIOTECA PARA EXPLORAR IDEAS</p><h1>El mundo,<br>transformado<br>por sus <em>algoritmos.</em></h1><p class="lede">Cincuenta formas de resolver lo imposible.<br>Descubre las ideas, las personas y los artículos<br class="desktop"> que cambiaron nuestra manera de calcular.</p><a class="button primary" href="#coleccion">Explorar la colección <span>↗</span></a><p class="byline">Una colección académica de Alfonso Meléndez</p></div>
+<div class="hero-figure"><div class="figure-top"><span class="pill"><i></i> UNA IDEA EN MOVIMIENTO</span><button id="heroPause" class="textbutton" aria-label="Pausar animación">Ⅱ Pausar</button></div><button id="heroOpen" class="hero-graph" aria-label="Explorar el algoritmo de Dijkstra"><div id="heroSvg"></div></button><div class="figure-caption"><span>FIG. 01 — EL CAMINO MÁS CORTO</span><strong>Dijkstra · 1959</strong><p>Muchas rutas posibles. Una idea para elegir.</p></div></div></section>
+<div class="stats wrap"><div><strong>50</strong><span>algoritmos<br>para descubrir</span></div><div><strong>9</strong><span>áreas del<br>conocimiento</span></div><div><strong>2.300+</strong><span>años de<br>historia</span></div><div><strong>50</strong><span>fichas con<br>referencias</span></div></div>
+<section id="coleccion" class="collection wrap"><div class="section-top"><div><p class="eyebrow">EXPLORAR EL ATLAS</p><h2>Cada algoritmo<br>cuenta una historia.</h2></div><p>De Euclides a la computación cuántica.<br>Encuentra una idea y sigue su historia.</p></div>
+<div class="searchline"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar algoritmo, autor, año o aplicación…" autocomplete="off" aria-label="Buscar algoritmos"></label><button id="random" class="button subtle">Sorpréndeme <span>↗</span></button></div>
+<div id="categories" class="categories" aria-label="Filtrar por área"></div>
+<div class="toolbar"><p id="resultCount" role="status" aria-live="polite"></p><div class="toolbar-actions"><label class="sr-only" for="era">Época</label><select id="era" aria-label="Filtrar por época"><option value="all">Todas las épocas</option><option value="ancient">Antes de 1900</option><option value="early">1900–1969</option><option value="modern">1970–1999</option><option value="recent">Desde 2000</option></select><label class="sr-only" for="sort">Ordenar</label><select id="sort" aria-label="Ordenar algoritmos"><option value="editorial">Selección editorial</option><option value="old">Más antiguos</option><option value="new">Más recientes</option><option value="name">Nombre A–Z</option></select><div class="view-switch" role="group" aria-label="Vista de colección"><button id="gridView" class="selected" aria-label="Vista de fichas" aria-pressed="true">▦</button><button id="timeView" aria-label="Vista cronológica" aria-pressed="false">↕</button></div></div></div>
+<div class="collection-extras"><button id="favFilter" class="textbutton" aria-pressed="false">☆ Mis favoritos <span id="favCount">0</span></button><button id="reset" class="textbutton">Restablecer filtros</button><button id="bib" class="textbutton">↓ Bibliografía de esta selección</button></div>
+<div id="cards" class="cards"></div><div id="empty" class="empty" hidden><h3>No encontramos ese algoritmo.</h3><p>Prueba con otro nombre, autor o aplicación.</p><button id="emptyReset" class="button subtle">Ver los 50 algoritmos</button></div>
+</section>
+<section id="recorrido" class="routes wrap"><p class="eyebrow">POR DÓNDE EMPEZAR</p><div class="section-top"><h2>Tres caminos.<br>Muchas conexiones.</h2><p>Pequeños recorridos para aprender,<br>comparar y llevar al aula.</p></div><div class="route-grid"><button class="route" data-route="classic"><span>01 / EL ARTE DE RESOLVER</span><h3>De una idea simple<br>a una gran mejora.</h3><p>Euclides → búsqueda binaria → Merge sort → Quicksort → Held–Karp.</p><b>Explorar 5 algoritmos ↗</b></button><button class="route" data-route="networks"><span>02 / PENSAR EN CONEXIONES</span><h3>La estructura también<br>es información.</h3><p>BFS → Dijkstra → PageRank → Louvain → node2vec.</p><b>Explorar 5 algoritmos ↗</b></button><button class="route" data-route="limits"><span>03 / CUANDO LO EXACTO CUESTA</span><h3>Garantías, azar<br>y buenas soluciones.</h3><p>Held–Karp → Christofides → recocido → genéticos → reservorio.</p><b>Explorar 5 algoritmos ↗</b></button></div></section>
+<section id="criterios" class="about wrap"><div><p class="eyebrow">SOBRE ESTA COLECCIÓN</p><h2>Entender la idea.<br>Conocer a sus autores.<br><em>Volver a la fuente.</em></h2><p>Una selección histórica y pedagógica de 50 algoritmos influyentes, pensada para descubrir, comparar y enseñar.</p></div><div class="criteria"><article><b>Una selección, no un ranking universal</b><p>Se equilibran impacto histórico, variedad de áreas y utilidad docente. Los números identifican fichas; no miden importancia. Hay otras selecciones igualmente valiosas.</p></article><article><b>Historia con atribuciones cuidadosas</b><p>Las fechas señalan hitos documentados y pueden diferir entre descubrimiento y publicación. Los métodos colectivos incluyen antecedentes. Un retrato puede representar a uno de los coautores.</p></article><article><b>Fuentes para seguir investigando</b><p>Cada ficha enlaza una publicación, libro o referencia institucional. Algunas editoriales ofrecen solo el resumen; no se promete acceso gratuito a todos los textos. Las imágenes enlazan su procedencia y pueden requerir conexión.</p></article><article><b>Visualizaciones para comprender</b><p>Las miniaturas son esquemas conceptuales de esta app. Las fichas con la etiqueta «Demo paso a paso» ejecutan un ejemplo concreto. La complejidad siempre debe leerse junto con sus condiciones.</p></article></div></section>
+<footer class="wrap"><a class="brand" href="#inicio">ATLAS DE ALGORITMOS<small>IDEAS, AUTORES Y ARTÍCULOS</small></a><p>Colección académica de Alfonso Meléndez · Octubre de 2026</p><a href="Algoritmos_y_Articulos.html" download>↓ Descargar app HTML</a></footer>
+</main>
+<dialog id="detail" aria-labelledby="detailTitle"><div class="dialog-top"><span id="detailOverline"></span><div><button id="detailFav" class="iconbutton" aria-label="Añadir a favoritos">☆</button><button id="closeDetail" class="iconbutton" aria-label="Cerrar ficha">×</button></div></div><div id="detailBody"></div><div class="dialog-bottom"><button id="prev" class="textbutton">← Anterior</button><span id="position"></span><button id="next" class="textbutton">Siguiente →</button></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+const ALGORITHMS = [
+  {
+    "id": 1,
+    "key": "euclides",
+    "name": "Algoritmo de Euclides",
+    "year": -300,
+    "date": "c. 300 a. C.",
+    "category": "Fundamentos",
+    "authors": "Euclides · tradición matemática griega",
+    "tag": "Un problema milenario, una reducción elegante.",
+    "idea": "Reemplaza dos enteros por el divisor y el residuo hasta que el residuo sea cero. El máximo común divisor se conserva en cada paso.",
+    "use": "Simplificación de fracciones, aritmética modular y criptografía.",
+    "cost": "O(log min(a,b)) divisiones; el costo en bits depende de la aritmética.",
+    "note": "Los Elementos documentan el método; no prueban que Euclides fuera su primer descubridor.",
+    "reference": "Elementos, libro VII, proposiciones 1–2. Edición de David E. Joyce.",
+    "url": "https://aleph0.clarku.edu/~djoyce/elements/bookVII/propVII2.html",
+    "example": "252 = 2×105 + 42; 105 = 2×42 + 21; 42 = 2×21. MCD = 21.",
+    "question": "¿Por qué el residuo conserva los divisores comunes?",
+    "sourceType": "Fuente histórica"
+  },
+  {
+    "id": 2,
+    "key": "criba",
+    "name": "Criba de Eratóstenes",
+    "year": -240,
+    "date": "c. 240 a. C.",
+    "category": "Fundamentos",
+    "authors": "Eratóstenes de Cirene",
+    "tag": "Encontrar primos descartando lo imposible.",
+    "idea": "Marca los múltiplos de cada primo, empezando por su cuadrado. Los enteros que quedan sin marcar son primos.",
+    "use": "Generación de tablas de primos y teoría de números computacional.",
+    "cost": "O(n log log n) tiempo y O(n) espacio en la criba clásica.",
+    "note": "La fecha es aproximada. La atribución tradicional no corresponde a un artículo conservado del autor.",
+    "reference": "NIST, Dictionary of Algorithms and Data Structures: sieve of Eratosthenes.",
+    "url": "https://xlinux.nist.gov/dads/HTML/sieve.html",
+    "example": "Hasta 20 quedan 2, 3, 5, 7, 11, 13, 17 y 19.",
+    "question": "¿Por qué basta procesar primos hasta la raíz de n?",
+    "sourceType": "Referencia institucional"
+  },
+  {
+    "id": 3,
+    "key": "newton",
+    "name": "Newton–Raphson",
+    "year": 1671,
+    "date": "1671 / 1690",
+    "category": "Fundamentos",
+    "authors": "Isaac Newton · Joseph Raphson",
+    "tag": "Aproximarse a una raíz siguiendo tangentes.",
+    "idea": "Itera x ← x − f(x)/f′(x). La tangente ofrece una nueva aproximación de la intersección de la función con el eje.",
+    "use": "Cálculo científico, calibración de modelos y solución de ecuaciones.",
+    "cost": "Convergencia local cuadrática cerca de una raíz simple, con condiciones de regularidad.",
+    "note": "Newton describió una versión en un manuscrito de 1671, publicado en 1736; Raphson publicó su formulación en 1690. Puede divergir o fallar si la derivada se anula.",
+    "reference": "MacTutor, University of St Andrews: Joseph Raphson.",
+    "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Raphson/",
+    "example": "Para √2: x ← (x + 2/x)/2. Desde 1 se obtiene 1.5, 1.4167, 1.4142…",
+    "question": "¿Qué ocurre si la estimación inicial está lejos de la raíz?",
+    "sourceType": "Fuente histórica"
+  },
+  {
+    "id": 4,
+    "key": "gauss",
+    "name": "Eliminación gaussiana",
+    "year": -100,
+    "date": "Antigüedad / s. XIX",
+    "category": "Fundamentos",
+    "authors": "Tradición china · Newton · Gauss y otros",
+    "tag": "Resolver muchas ecuaciones, paso a paso.",
+    "idea": "Combina filas para triangularizar un sistema lineal y después recupera las incógnitas por sustitución hacia atrás.",
+    "use": "Ingeniería, mínimos cuadrados y cómputo científico.",
+    "cost": "O(n³) operaciones aritméticas para un sistema denso n×n.",
+    "note": "Tiene antecedentes en Los nueve capítulos. El nombre no significa invención exclusiva de Gauss. El pivoteo ayuda a la estabilidad numérica.",
+    "reference": "Grcar (2011). How ordinary elimination became Gaussian elimination. Historia Mathematica.",
+    "url": "https://doi.org/10.1016/j.hm.2010.06.003",
+    "example": "x+y=3 y 2x+y=4: restar ecuaciones da x=1 y luego y=2.",
+    "question": "¿Por qué intercambiar filas puede evitar un problema numérico?",
+    "sourceType": "Estudio histórico"
+  },
+  {
+    "id": 5,
+    "key": "binaria",
+    "name": "Búsqueda binaria",
+    "year": 1946,
+    "date": "1946 · antecedente moderno",
+    "category": "Ordenación y búsqueda",
+    "authors": "John W. Mauchly · desarrollo colectivo",
+    "tag": "Cada pregunta elimina la mitad.",
+    "idea": "En una secuencia ordenada, compara el objetivo con el elemento central y continúa solo en la mitad donde puede aparecer.",
+    "use": "Índices, búsquedas en datos ordenados y búsqueda sobre una respuesta monótona.",
+    "cost": "O(log n) comparaciones con acceso aleatorio; O(1) espacio iterativo.",
+    "note": "La idea de bisección es mucho más antigua. 1946 señala una descripción temprana para computadoras, no una invención absoluta.",
+    "reference": "Sedgewick y Wayne. Algorithms: Sorting and Searching, Princeton.",
+    "url": "https://introcs.cs.princeton.edu/java/42sort/",
+    "example": "En [2,5,8,12,16,23,38], buscar 23 descarta primero todo lo anterior a 12.",
+    "question": "¿Qué propiedad debe satisfacer un predicado para buscar una respuesta binariamente?",
+    "sourceType": "Recurso académico"
+  },
+  {
+    "id": 6,
+    "key": "merge",
+    "name": "Merge sort",
+    "year": 1945,
+    "date": "1945",
+    "category": "Ordenación y búsqueda",
+    "authors": "John von Neumann",
+    "tag": "Dividir, ordenar y reunir.",
+    "idea": "Divide la entrada en mitades, ordena cada una recursivamente y mezcla dos secuencias ordenadas mediante dos punteros.",
+    "use": "Ordenación estable, procesamiento externo y grandes volúmenes de registros.",
+    "cost": "O(n log n) tiempo; O(n) espacio auxiliar en la versión con arreglos.",
+    "note": "Se atribuye a von Neumann la formulación para computadoras en 1945. La mezcla de listas tiene antecedentes.",
+    "reference": "Sedgewick y Wayne. Algorithms, §2.2: Mergesort. Princeton.",
+    "url": "https://algs4.cs.princeton.edu/22mergesort/",
+    "example": "[7,2,6,1] → [2,7] y [1,6] → [1,2,6,7].",
+    "question": "¿Qué hace que una mezcla sea estable?",
+    "sourceType": "Recurso académico"
+  },
+  {
+    "id": 7,
+    "key": "quick",
+    "name": "Quicksort",
+    "year": 1961,
+    "date": "1961 / 1962",
+    "category": "Ordenación y búsqueda",
+    "authors": "C. A. R. «Tony» Hoare",
+    "tag": "Un pivote organiza el desorden.",
+    "idea": "Particiona los elementos respecto a un pivote y aplica recursión a cada lado. Aleatorizar reduce el riesgo de particiones desfavorables sistemáticas.",
+    "use": "Ordenación en memoria y bibliotecas de software.",
+    "cost": "O(n log n) esperado con pivotes aleatorios; O(n²) peor caso.",
+    "note": "Publicación algorítmica en 1961 y artículo extenso en 1962. No es estable en su forma usual.",
+    "reference": "Hoare (1962). Quicksort. The Computer Journal 5(1), 10–16.",
+    "url": "https://doi.org/10.1093/comjnl/5.1.10",
+    "example": "[7,2,6,1], pivote 6 → [2,1] | 6 | [7].",
+    "question": "¿Qué entradas perjudican al pivote elegido siempre en un extremo?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 8,
+    "key": "heap",
+    "name": "Heapsort",
+    "year": 1964,
+    "date": "1964",
+    "category": "Ordenación y búsqueda",
+    "authors": "J. W. J. Williams · mejora de Robert W. Floyd",
+    "tag": "El máximo siempre está arriba.",
+    "idea": "Construye un montículo máximo y mueve repetidamente la raíz al final de la región activa, restaurando después el montículo.",
+    "use": "Ordenación con garantía temporal y poca memoria adicional.",
+    "cost": "O(n log n) tiempo; O(1) espacio auxiliar iterativo.",
+    "note": "Williams publicó Heapsort; Floyd aportó una construcción eficiente del montículo. Su construcción puede hacerse en O(n).",
+    "reference": "Williams (1964). Algorithm 232: Heapsort. Communications of the ACM 7(6), 347–348.",
+    "url": "https://xlinux.nist.gov/dads/HTML/heapSort.html",
+    "example": "Un montículo permite extraer primero 9, después 7 y después 4 de [4,9,7].",
+    "question": "¿Por qué construir el montículo cuesta O(n) y no O(n log n)?",
+    "sourceType": "Referencia institucional"
+  },
+  {
+    "id": 9,
+    "key": "select",
+    "name": "Quickselect",
+    "year": 1961,
+    "date": "1961",
+    "category": "Ordenación y búsqueda",
+    "authors": "C. A. R. «Tony» Hoare",
+    "tag": "Encontrar la mediana sin ordenar todo.",
+    "idea": "Particiona como Quicksort, pero continúa únicamente en la región que contiene el estadístico de orden buscado.",
+    "use": "Medianas, percentiles y selección de los k elementos principales.",
+    "cost": "O(n) tiempo esperado con pivotes aleatorios; O(n²) peor caso.",
+    "note": "No confundir con selección determinista por medianas de medianas, que garantiza tiempo lineal.",
+    "reference": "Hoare (1961). Algorithm 65: Find. Communications of the ACM 4(7), 321–322.",
+    "url": "https://doi.org/10.1145/366622.366647",
+    "example": "La tercera posición ordenada de [9,1,8,2,7] es 7; las otras posiciones no necesitan quedar ordenadas.",
+    "question": "¿Por qué se descarta una llamada recursiva de Quicksort?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 10,
+    "key": "kmp",
+    "name": "Knuth–Morris–Pratt",
+    "year": 1977,
+    "date": "1977",
+    "category": "Texto y secuencias",
+    "authors": "Donald E. Knuth · James H. Morris Jr. · Vaughan R. Pratt",
+    "tag": "Recordar para no comparar dos veces.",
+    "idea": "Precalcula los bordes del patrón. Después de un fallo, reutiliza el prefijo ya reconocido sin retroceder en el texto.",
+    "use": "Búsqueda exacta de patrones y procesamiento de secuencias.",
+    "cost": "O(n+m) tiempo y O(m) memoria para texto n y patrón m.",
+    "note": "El trabajo circuló antes de su publicación de 1977. El preprocesamiento es parte esencial del algoritmo.",
+    "reference": "Knuth, Morris y Pratt (1977). Fast Pattern Matching in Strings. SIAM Journal on Computing 6(2), 323–350.",
+    "url": "https://doi.org/10.1137/0206024",
+    "example": "Buscar ABABAC en ABABABAC reutiliza el borde ABAB tras una discrepancia.",
+    "question": "¿Qué información resume la tabla de prefijos?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 11,
+    "key": "rabin",
+    "name": "Rabin–Karp",
+    "year": 1987,
+    "date": "1987",
+    "category": "Texto y secuencias",
+    "authors": "Richard M. Karp · Michael O. Rabin",
+    "tag": "Comparar huellas antes que cadenas.",
+    "idea": "Calcula una huella del patrón y actualiza la huella de una ventana al desplazarla. Si coinciden, puede verificar los caracteres.",
+    "use": "Búsqueda de patrones y técnicas de detección de similitud.",
+    "cost": "O(n+m) esperado bajo hipótesis de hashing; O(nm) peor caso con verificación.",
+    "note": "Sin verificar coincidencias, una colisión puede producir falsos positivos. La garantía depende de la variante.",
+    "reference": "Karp y Rabin (1987). Efficient randomized pattern-matching algorithms. IBM Journal of Research and Development 31(2), 249–260.",
+    "url": "https://doi.org/10.1147/rd.312.0249",
+    "example": "La huella de una ventana de longitud 3 se actualiza quitando la letra saliente y agregando la nueva.",
+    "question": "¿Por qué una huella igual no prueba igualdad?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 12,
+    "key": "union",
+    "name": "Union–Find optimizado",
+    "year": 1975,
+    "date": "1975 · análisis clásico",
+    "category": "Grafos y redes",
+    "authors": "Robert E. Tarjan · antecedentes de Galler y Fischer",
+    "tag": "Conectar conjuntos casi sin costo.",
+    "idea": "Representa conjuntos por árboles. Une por rango o tamaño y comprime los caminos al buscar un representante.",
+    "use": "Kruskal, conectividad incremental y agrupamiento de componentes.",
+    "cost": "O(α(n)) amortizado por operación en secuencias adecuadas.",
+    "note": "Es una estructura con algoritmos asociados. Tarjan estableció el análisis clásico; no inventó por sí solo todas sus operaciones.",
+    "reference": "Tarjan (1975). Efficiency of a Good But Not Linear Set Union Algorithm. JACM 22(2), 215–225.",
+    "url": "https://doi.org/10.1145/321879.321884",
+    "example": "Unir {A,B} con {C} hace que find(A) y find(C) devuelvan el mismo representante.",
+    "question": "¿Por qué amortizado no significa que cada operación cueste lo mismo?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 13,
+    "key": "bfs",
+    "name": "Búsqueda en anchura · BFS",
+    "year": 1959,
+    "date": "1959 / 1961",
+    "category": "Grafos y redes",
+    "authors": "Edward F. Moore · C. Y. Lee · antecedentes de Konrad Zuse",
+    "tag": "Explorar el mundo por capas.",
+    "idea": "Usa una cola para descubrir primero los vértices a una arista, luego a dos, y así sucesivamente.",
+    "use": "Distancias sin pesos, difusión y rutas con mínimo número de saltos.",
+    "cost": "O(V+E) tiempo y O(V) memoria con listas de adyacencia.",
+    "note": "Se reconocen formulaciones de Moore y Lee y un antecedente de Zuse. Lee la aplicó al trazado de circuitos.",
+    "reference": "Lee (1961). An Algorithm for Path Connections and Its Applications. IRE Transactions on Electronic Computers.",
+    "url": "https://doi.org/10.1109/TEC.1961.5219222",
+    "example": "Desde A, las capas son {A}, {B,C}, {D,E}, {F}.",
+    "question": "¿Por qué una cola garantiza distancias mínimas cuando no hay pesos?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 14,
+    "key": "dfs",
+    "name": "Búsqueda en profundidad · DFS",
+    "year": 1972,
+    "date": "s. XIX / 1972",
+    "category": "Grafos y redes",
+    "authors": "Charles P. Trémaux · Gaston Tarry · Robert E. Tarjan",
+    "tag": "Seguir un camino hasta el fondo.",
+    "idea": "Explora un vecino no visitado antes de volver atrás. Una pila explícita o la recursión conserva los puntos de retorno.",
+    "use": "Detección de ciclos, orden topológico y componentes fuertemente conexas.",
+    "cost": "O(V+E) tiempo y O(V) memoria con listas de adyacencia.",
+    "note": "La exploración tiene raíces en laberintos del siglo XIX. Tarjan sistematizó aplicaciones lineales en grafos en 1972.",
+    "reference": "Tarjan (1972). Depth-First Search and Linear Graph Algorithms. SIAM Journal on Computing 1(2), 146–160.",
+    "url": "https://doi.org/10.1137/0201010",
+    "example": "Desde A se visita B, luego D; al agotarse esa rama se regresa a B y después a A.",
+    "question": "¿Qué significan las aristas de retorno en un grafo dirigido?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 15,
+    "key": "dijkstra",
+    "name": "Algoritmo de Dijkstra",
+    "year": 1959,
+    "date": "1959",
+    "category": "Grafos y redes",
+    "authors": "Edsger W. Dijkstra",
+    "tag": "La ruta más corta, una certeza a la vez.",
+    "idea": "Fija el vértice pendiente con menor distancia y relaja sus aristas. Con pesos no negativos, esa distancia ya no puede mejorar.",
+    "use": "Navegación, planificación de rutas y protocolos de redes.",
+    "cost": "O((V+E) log V) con montículo binario; O(V²) con arreglo.",
+    "note": "Requiere pesos no negativos para la garantía estándar. El artículo también aborda árboles de expansión mínima.",
+    "reference": "Dijkstra (1959). A note on two problems in connexion with graphs. Numerische Mathematik 1, 269–271.",
+    "url": "https://doi.org/10.1007/BF01386390",
+    "example": "A→B=4, A→C=1, C→B=2: llegar a B pasando por C cuesta 3.",
+    "question": "¿En qué falla la decisión voraz cuando aparece un peso negativo?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 16,
+    "key": "bellman",
+    "name": "Bellman–Ford",
+    "year": 1958,
+    "date": "1956 / 1958",
+    "category": "Grafos y redes",
+    "authors": "Lester R. Ford Jr. · Richard Bellman · Edward F. Moore",
+    "tag": "Reconsiderar rutas para admitir costos negativos.",
+    "idea": "Relaja todas las aristas hasta V−1 veces. Una mejora adicional alcanzable desde el origen revela un ciclo negativo.",
+    "use": "Rutas con pesos negativos y fundamentos del enrutamiento por vector de distancias.",
+    "cost": "O(VE) tiempo y O(V) memoria para las distancias.",
+    "note": "Ford publicó antecedentes en 1956; Bellman en 1958. Un ciclo negativo alcanzable impide distancias mínimas finitas en su región de influencia.",
+    "reference": "Bellman (1958). On a routing problem. Quarterly of Applied Mathematics 16(1), 87–90.",
+    "url": "https://doi.org/10.1090/qam/102435",
+    "example": "A→B=4, A→C=5 y C→B=−3 permiten mejorar B de 4 a 2.",
+    "question": "¿Por qué V−1 rondas bastan cuando no hay ciclos negativos alcanzables?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 17,
+    "key": "floyd",
+    "name": "Floyd–Warshall",
+    "year": 1962,
+    "date": "1962",
+    "category": "Grafos y redes",
+    "authors": "Robert W. Floyd · Stephen Warshall · antecedente de Bernard Roy",
+    "tag": "Todas las rutas en una sola matriz.",
+    "idea": "Admite sucesivamente cada vértice como intermediario: d[i,j] ← min(d[i,j], d[i,k]+d[k,j]).",
+    "use": "Distancias entre todos los pares y análisis de redes pequeñas o densas.",
+    "cost": "O(V³) tiempo y O(V²) memoria.",
+    "note": "Floyd trata distancias; Warshall, cierre transitivo. Roy publicó un antecedente en 1959. Se permiten pesos negativos, pero no ciclos negativos para distancias finitas.",
+    "reference": "Floyd (1962). Algorithm 97: Shortest Path. Communications of the ACM 5(6), 345.",
+    "url": "https://doi.org/10.1145/367766.368168",
+    "example": "Si A→B=2 y B→C=3, la intermediación de B mejora A→C a 5.",
+    "question": "¿Por qué el bucle del intermediario debe ser el exterior?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 18,
+    "key": "kruskal",
+    "name": "Algoritmo de Kruskal",
+    "year": 1956,
+    "date": "1956",
+    "category": "Grafos y redes",
+    "authors": "Joseph B. Kruskal",
+    "tag": "Conectar todo, evitando ciclos.",
+    "idea": "Ordena las aristas por peso y agrega una si une componentes distintas. Union–Find mantiene esas componentes.",
+    "use": "Diseño de redes, cableado y agrupamiento por enlace simple.",
+    "cost": "O(E log E) tiempo, dominado por ordenar las aristas.",
+    "note": "Resuelve el árbol de expansión mínima; no el camino más corto ni el TSP. En un grafo desconectado produce un bosque.",
+    "reference": "Kruskal (1956). On the Shortest Spanning Subtree of a Graph and the Traveling Salesman Problem. Proceedings of the AMS 7, 48–50.",
+    "url": "https://doi.org/10.1090/S0002-9939-1956-0078686-7",
+    "example": "En un triángulo de pesos 1,2,4 se eligen las aristas 1 y 2.",
+    "question": "¿Qué propiedad permite aceptar una arista sin reconsiderarla?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 19,
+    "key": "prim",
+    "name": "Algoritmo de Prim",
+    "year": 1957,
+    "date": "1930 / 1957",
+    "category": "Grafos y redes",
+    "authors": "Vojtěch Jarník · Robert C. Prim · Edsger W. Dijkstra",
+    "tag": "Hacer crecer una red desde una semilla.",
+    "idea": "Añade repetidamente la arista más barata que cruza desde el árbol construido hacia un vértice nuevo.",
+    "use": "Árboles de expansión mínima y diseño de infraestructura.",
+    "cost": "O(E log V) con montículo binario; O(V²) en una implementación densa.",
+    "note": "Jarník publicó la idea en 1930; Prim la redescubrió en 1957 y Dijkstra en 1959.",
+    "reference": "Prim (1957). Shortest Connection Networks And Some Generalizations. Bell System Technical Journal 36, 1389–1401.",
+    "url": "https://doi.org/10.1002/j.1538-7305.1957.tb01515.x",
+    "example": "Desde A, conectar primero su vecino más barato y después el enlace mínimo que sale del árbol.",
+    "question": "¿Por qué se consideran aristas que salen del árbol completo?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 20,
+    "key": "flow",
+    "name": "Ford–Fulkerson",
+    "year": 1956,
+    "date": "1956",
+    "category": "Grafos y redes",
+    "authors": "Lester R. Ford Jr. · Delbert R. Fulkerson",
+    "tag": "Enviar más flujo buscando capacidad residual.",
+    "idea": "Encuentra un camino aumentante en la red residual e incrementa el flujo por su cuello de botella. Las aristas inversas permiten corregir decisiones.",
+    "use": "Transporte, asignación y conexiones entre flujo máximo y corte mínimo.",
+    "cost": "O(E·|f*|) con capacidades enteras y búsqueda de caminos en O(E).",
+    "note": "Es un método: la elección de caminos importa. Con capacidades irracionales puede no terminar; Edmonds–Karp sí tiene cota polinómica.",
+    "reference": "Ford y Fulkerson (1956). Maximal Flow Through a Network. Canadian Journal of Mathematics 8, 399–404.",
+    "url": "https://doi.org/10.4153/CJM-1956-045-5",
+    "example": "Un camino con capacidades 5,3,4 puede aumentar el flujo en 3.",
+    "question": "¿Por qué hacen falta las aristas residuales inversas?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 21,
+    "key": "astar",
+    "name": "A*",
+    "year": 1968,
+    "date": "1968",
+    "category": "Grafos y redes",
+    "authors": "Peter E. Hart · Nils J. Nilsson · Bertram Raphael",
+    "tag": "Buscar con una estimación del camino restante.",
+    "idea": "Expande el estado con menor f(n)=g(n)+h(n): costo recorrido más una estimación del costo restante.",
+    "use": "Videojuegos, robótica y planificación en espacios de estados.",
+    "cost": "Puede ser exponencial en profundidad; depende de la heurística y el espacio de estados.",
+    "note": "Admisibilidad y condiciones de búsqueda adecuadas garantizan optimalidad. La consistencia evita ciertas reaperturas en búsqueda en grafos.",
+    "reference": "Hart, Nilsson y Raphael (1968). A Formal Basis for the Heuristic Determination of Minimum Cost Paths. IEEE TSSC 4(2), 100–107.",
+    "url": "https://doi.org/10.1109/TSSC.1968.300136",
+    "example": "En una cuadrícula de movimientos ortogonales, la distancia Manhattan orienta la exploración.",
+    "question": "¿Qué cambia si h sobreestima la distancia restante?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 22,
+    "key": "matching",
+    "name": "Hopcroft–Karp",
+    "year": 1973,
+    "date": "1973",
+    "category": "Grafos y redes",
+    "authors": "John E. Hopcroft · Richard M. Karp",
+    "tag": "Muchos emparejamientos en una sola fase.",
+    "idea": "Usa BFS para construir capas de caminos aumentantes mínimos y DFS para aumentar varios caminos disjuntos en cada fase.",
+    "use": "Asignación de personas a tareas, mercados y emparejamientos bipartitos.",
+    "cost": "O((V+E)√V) tiempo; habitualmente O(E√V) tras omitir aislados.",
+    "note": "Resuelve máximo número de parejas en grafos bipartitos sin pesos. La asignación ponderada es un problema diferente.",
+    "reference": "Hopcroft y Karp (1973). An n⁵ᐟ² Algorithm for Maximum Matchings in Bipartite Graphs. SIAM Journal on Computing 2(4), 225–231.",
+    "url": "https://doi.org/10.1137/0202019",
+    "example": "Asignar A a tarea 1 y B a tarea 2 puede requerir reasignar una pareja previa.",
+    "question": "¿Cómo aumenta el tamaño del matching un camino alternante?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 23,
+    "key": "simplex",
+    "name": "Método símplex",
+    "year": 1947,
+    "date": "1947",
+    "category": "Optimización",
+    "authors": "George B. Dantzig",
+    "tag": "Optimizar moviéndose entre vértices.",
+    "idea": "Recorre soluciones básicas factibles de un programa lineal mediante pivotes que mejoran el objetivo, con reglas para resolver empates y evitar ciclos.",
+    "use": "Planificación de producción, transporte y asignación de recursos.",
+    "cost": "Peor caso exponencial para reglas clásicas; muy eficaz en numerosas aplicaciones.",
+    "note": "Programación lineal tiene algoritmos polinómicos; eso no convierte al símplex clásico en uno de ellos.",
+    "reference": "Dantzig. Oral history, INFORMS: origen del método símplex en 1947.",
+    "url": "https://www.informs.org/Explore/History-of-O.R.-Excellence/Oral-Histories/George-Dantzig",
+    "example": "Maximizar 3x+2y sujeto a x+y≤4, x≤2 y x,y≥0 da x=2, y=2.",
+    "question": "¿Por qué basta buscar un óptimo en un vértice bajo las hipótesis usuales?",
+    "sourceType": "Testimonio histórico"
+  },
+  {
+    "id": 24,
+    "key": "held",
+    "name": "Held–Karp para TSP",
+    "year": 1962,
+    "date": "1962",
+    "category": "Optimización",
+    "authors": "Michael Held · Richard M. Karp · Richard Bellman",
+    "tag": "Recordar subconjuntos para evitar permutaciones.",
+    "idea": "Guarda el mejor costo de visitar un subconjunto S y terminar en j. Amplía el estado añadiendo una última ciudad.",
+    "use": "Solución exacta del viajante en instancias pequeñas y referencia para heurísticas.",
+    "cost": "O(n²·2ⁿ) tiempo y O(n·2ⁿ) espacio.",
+    "note": "Bellman publicó una formulación independiente en 1962. No confundir este DP con la cota inferior de Held–Karp basada en relajaciones.",
+    "reference": "Held y Karp (1962). A Dynamic Programming Approach to Sequencing Problems. J. SIAM 10(1), 196–210.",
+    "url": "https://doi.org/10.1137/0110015",
+    "example": "DP[{B,C},C] compara llegar a C tras visitar B frente a otros órdenes válidos.",
+    "question": "¿Por qué conocer el conjunto y la última ciudad basta para definir el futuro?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 25,
+    "key": "viterbi",
+    "name": "Algoritmo de Viterbi",
+    "year": 1967,
+    "date": "1967",
+    "category": "Aprendizaje y azar",
+    "authors": "Andrew J. Viterbi",
+    "tag": "La secuencia más probable deja un rastro.",
+    "idea": "En un modelo de estados, conserva el mejor camino que termina en cada estado y guarda predecesores para reconstruir la secuencia.",
+    "use": "Decodificación, reconocimiento del habla y modelos ocultos de Markov.",
+    "cost": "O(T·S²) para T pasos y S estados con transiciones densas.",
+    "note": "Maximiza la probabilidad conjunta de una secuencia; no equivale a escoger el estado marginalmente más probable en cada instante.",
+    "reference": "Viterbi (1967). Error bounds for convolutional codes and an asymptotically optimum decoding algorithm. IEEE TIT 13(2), 260–269.",
+    "url": "https://doi.org/10.1109/TIT.1967.1054010",
+    "example": "Con observaciones de clima indirectas, reconstruye la trayectoria de estados más probable.",
+    "question": "¿Por qué el mejor estado aislado puede no formar la mejor secuencia?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 26,
+    "key": "needle",
+    "name": "Needleman–Wunsch",
+    "year": 1970,
+    "date": "1970",
+    "category": "Texto y secuencias",
+    "authors": "Saul B. Needleman · Christian D. Wunsch",
+    "tag": "Alinear dos secuencias para compararlas.",
+    "idea": "Llena una matriz de programación dinámica con opciones de coincidencia, sustitución e inserción de huecos; reconstruye un alineamiento global óptimo.",
+    "use": "Comparación global de secuencias biológicas.",
+    "cost": "O(nm) tiempo y O(nm) memoria para reconstrucción básica.",
+    "note": "El alineamiento global considera secuencias completas. Smith–Waterman resuelve una versión local distinta.",
+    "reference": "Needleman y Wunsch (1970). A general method applicable to the search for similarities in the amino acid sequence of two proteins. J. Mol. Biol. 48, 443–453.",
+    "url": "https://doi.org/10.1016/0022-2836(70)90057-4",
+    "example": "ACG y AG pueden alinearse como ACG / A–G, pagando el costo de un hueco.",
+    "question": "¿Cómo cambia el alineamiento al aumentar la penalización de un hueco?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 27,
+    "key": "edit",
+    "name": "Distancia de edición",
+    "year": 1965,
+    "date": "1965 / 1974",
+    "category": "Texto y secuencias",
+    "authors": "Vladimir I. Levenshtein · Robert A. Wagner · Michael J. Fischer",
+    "tag": "Medir cuánto cuesta transformar una palabra.",
+    "idea": "Una tabla compara prefijos y elige el menor costo entre insertar, borrar o sustituir un símbolo.",
+    "use": "Corrección ortográfica, comparación de versiones y similitud de secuencias.",
+    "cost": "O(nm) tiempo; O(min(n,m)) memoria si solo se necesita el valor.",
+    "note": "Levenshtein introdujo la métrica en 1965. Wagner y Fischer publicaron en 1974 el algoritmo clásico para el problema de corrección de cadenas.",
+    "reference": "Wagner y Fischer (1974). The String-to-String Correction Problem. JACM 21(1), 168–173.",
+    "url": "https://doi.org/10.1145/321796.321811",
+    "example": "CASA → CAMA requiere una sustitución: distancia 1 con costos unitarios.",
+    "question": "¿Qué transformación representa cada vecino de una celda de la tabla?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 28,
+    "key": "fft",
+    "name": "FFT de Cooley–Tukey",
+    "year": 1965,
+    "date": "1965",
+    "category": "Cálculo numérico",
+    "authors": "James W. Cooley · John W. Tukey",
+    "tag": "Descubrir frecuencias con menos operaciones.",
+    "idea": "Factoriza la transformada discreta de Fourier en transformadas menores y combina resultados reutilizando simetrías.",
+    "use": "Audio digital, telecomunicaciones, procesamiento de señales y convoluciones.",
+    "cost": "O(n log n) para tamaños y factorizaciones adecuados.",
+    "note": "Gauss y otros desarrollaron antecedentes. La FFT es una familia; Cooley–Tukey difundió una formulación decisiva en 1965.",
+    "reference": "Cooley y Tukey (1965). An algorithm for the machine calculation of complex Fourier series. Mathematics of Computation 19, 297–301.",
+    "url": "https://doi.org/10.1090/S0025-5718-1965-0178586-1",
+    "example": "Una señal que combina dos sinusoides muestra energía en sus respectivas frecuencias.",
+    "question": "¿Por qué separar índices pares e impares reduce trabajo?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 29,
+    "key": "qr",
+    "name": "Algoritmo QR",
+    "year": 1961,
+    "date": "1961",
+    "category": "Cálculo numérico",
+    "authors": "John G. F. Francis · Vera N. Kublanovskaya",
+    "tag": "Encontrar autovalores transformando matrices.",
+    "idea": "Factoriza A=QR y forma RQ, manteniendo los autovalores. Iteraciones con desplazamientos y estructura de Hessenberg aceleran la convergencia.",
+    "use": "Estabilidad de sistemas, vibraciones y álgebra lineal numérica.",
+    "cost": "En versiones densas usuales, costo típico total O(n³); depende de convergencia y precisión.",
+    "note": "Francis y Kublanovskaya desarrollaron métodos independientemente. Factorización QR y algoritmo iterativo QR no son lo mismo.",
+    "reference": "Francis (1961). The QR Transformation: A Unitary Analogue to the LR Transformation—Part 1. The Computer Journal 4(3), 265–271.",
+    "url": "https://doi.org/10.1093/comjnl/4.3.265",
+    "example": "Para una matriz diagonal, los autovalores ya están en su diagonal y la iteración no aporta cambios.",
+    "question": "¿Por qué A=QR y RQ tienen los mismos autovalores?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 30,
+    "key": "cg",
+    "name": "Gradientes conjugados",
+    "year": 1952,
+    "date": "1952",
+    "category": "Cálculo numérico",
+    "authors": "Magnus R. Hestenes · Eduard Stiefel",
+    "tag": "Resolver sistemas grandes sin factorizar todo.",
+    "idea": "Construye direcciones conjugadas para minimizar una función cuadrática asociada a Ax=b, usando productos matriz–vector.",
+    "use": "Simulación física y sistemas lineales dispersos de gran tamaño.",
+    "cost": "O(nnz(A)) por iteración en matrices dispersas; la cantidad de iteraciones depende del condicionamiento.",
+    "note": "La versión clásica requiere A simétrica definida positiva. En aritmética exacta termina en a lo sumo n pasos; en flotante puede necesitar más.",
+    "reference": "Hestenes y Stiefel (1952). Methods of Conjugate Gradients for Solving Linear Systems. Journal of Research of the NBS 49, 409–436.",
+    "url": "https://nvlpubs.nist.gov/nistpubs/jres/049/jresv49n6p409_A1b.pdf",
+    "example": "Resolver una gran malla física usando solo el producto de la matriz dispersa por un vector.",
+    "question": "¿Por qué un precondicionador puede reducir las iteraciones?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 31,
+    "key": "svd",
+    "name": "SVD de Golub–Reinsch",
+    "year": 1970,
+    "date": "1970",
+    "category": "Cálculo numérico",
+    "authors": "Gene H. Golub · Christian Reinsch · antecedente de William Kahan",
+    "tag": "Separar una matriz en sus direcciones esenciales.",
+    "idea": "Reduce la matriz a forma bidiagonal y calcula sus valores y vectores singulares mediante transformaciones ortogonales.",
+    "use": "Mínimos cuadrados, compresión, reducción de dimensionalidad y análisis de datos.",
+    "cost": "O(mn²) típico para una matriz densa m×n, con m≥n.",
+    "note": "La descomposición tiene antecedentes del siglo XIX. Esta ficha trata el algoritmo numérico de Golub–Reinsch.",
+    "reference": "Golub y Reinsch (1970). Singular value decomposition and least squares solutions. Numerische Mathematik 14, 403–420.",
+    "url": "https://doi.org/10.1007/BF02163027",
+    "example": "Conservar solo los mayores valores singulares aproxima una imagen mediante una matriz de menor rango.",
+    "question": "¿Qué se pierde al descartar valores singulares pequeños?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 32,
+    "key": "karatsuba",
+    "name": "Multiplicación de Karatsuba",
+    "year": 1962,
+    "date": "1962",
+    "category": "Cálculo numérico",
+    "authors": "Anatoli A. Karatsuba · artículo con Yuri P. Ofman",
+    "tag": "Tres productos donde parecían necesarios cuatro.",
+    "idea": "Divide los números en dos bloques y calcula tres productos recursivos; obtiene el término cruzado mediante sumas y restas.",
+    "use": "Aritmética de enteros grandes y bibliotecas multiprecisión.",
+    "cost": "O(n^log₂3) ≈ O(n^1.585) operaciones sobre dígitos.",
+    "note": "Descubrimiento en 1960 y publicación en 1962; la traducción inglesa apareció en 1963. La coautoría del artículo no equivale a coautoría de cada resultado.",
+    "reference": "Karatsuba y Ofman (1962). Multiplication of multidigit numbers on automata. Lista de publicaciones del autor, Steklov Institute.",
+    "url": "https://homepage.mi-ras.ru/~karatsuba/list_e.html",
+    "example": "(10a+b)(10c+d) usa ac, bd y (a+b)(c+d); el término cruzado es el tercero menos los dos primeros.",
+    "question": "¿En qué tamaño dejan de compensar las sumas adicionales?",
+    "sourceType": "Bibliografía del autor"
+  },
+  {
+    "id": 33,
+    "key": "strassen",
+    "name": "Multiplicación de Strassen",
+    "year": 1969,
+    "date": "1969",
+    "category": "Cálculo numérico",
+    "authors": "Volker Strassen",
+    "tag": "Romper la barrera cúbica.",
+    "idea": "Combina bloques de matrices de modo que cada nivel recursivo requiere siete multiplicaciones en lugar de ocho.",
+    "use": "Multiplicación de matrices grandes y teoría de complejidad algebraica.",
+    "cost": "O(n^log₂7) ≈ O(n^2.807) operaciones aritméticas.",
+    "note": "No siempre supera al método clásico en tamaños pequeños; memoria, constantes y estabilidad importan. No es el mejor exponente conocido.",
+    "reference": "Strassen (1969). Gaussian elimination is not optimal. Numerische Mathematik 13, 354–356.",
+    "url": "https://doi.org/10.1007/BF02165411",
+    "example": "Una matriz 2×2 por bloques puede multiplicarse con siete productos de bloques y más sumas.",
+    "question": "¿Por qué menos multiplicaciones no garantiza menor tiempo real?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 34,
+    "key": "huffman",
+    "name": "Codificación de Huffman",
+    "year": 1952,
+    "date": "1952",
+    "category": "Información y seguridad",
+    "authors": "David A. Huffman",
+    "tag": "Los símbolos frecuentes merecen códigos cortos.",
+    "idea": "Combina repetidamente los dos símbolos o subárboles menos frecuentes hasta construir un árbol de código prefijo.",
+    "use": "Compresión sin pérdida y codificación entrópica.",
+    "cost": "O(k log k) para k símbolos usando una cola de prioridad.",
+    "note": "Es óptimo entre códigos prefijo símbolo a símbolo para frecuencias dadas; no entre todos los métodos de compresión posibles.",
+    "reference": "Huffman (1952). A Method for the Construction of Minimum-Redundancy Codes. Proceedings of the IRE 40(9), 1098–1101.",
+    "url": "https://doi.org/10.1109/JRPROC.1952.273898",
+    "example": "Frecuencias A:8, B:3, C:1 permiten asignar a A un código más corto que a B y C.",
+    "question": "¿Por qué ningún código puede ser prefijo de otro?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 35,
+    "key": "lz",
+    "name": "LZ77",
+    "year": 1977,
+    "date": "1977",
+    "category": "Información y seguridad",
+    "authors": "Jacob Ziv · Abraham Lempel",
+    "tag": "Comprimir señalando lo que ya apareció.",
+    "idea": "Sustituye fragmentos repetidos por referencias a una ventana de texto previo, acompañadas según la variante de longitud y siguiente símbolo.",
+    "use": "Bases de compresores y formatos que combinan diccionarios y codificación entrópica.",
+    "cost": "El costo depende de la búsqueda de coincidencias y del tamaño de ventana.",
+    "note": "LZ77 y LZ78 son esquemas distintos. DEFLATE combina una variante de LZ77 con Huffman.",
+    "reference": "Ziv y Lempel (1977). A universal algorithm for sequential data compression. IEEE TIT 23(3), 337–343.",
+    "url": "https://doi.org/10.1109/TIT.1977.1055714",
+    "example": "En ABCABCABC, las últimas repeticiones pueden representarse como referencias hacia atrás.",
+    "question": "¿Cómo afecta el tamaño de ventana la compresión y su costo?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 36,
+    "key": "rsa",
+    "name": "RSA",
+    "year": 1977,
+    "date": "1977 / 1978",
+    "category": "Información y seguridad",
+    "authors": "Ronald L. Rivest · Adi Shamir · Leonard Adleman",
+    "tag": "Una clave pública, un secreto privado.",
+    "idea": "Usa exponenciación modular y una pareja de claves construida a partir de primos grandes para operaciones de cifrado y firma.",
+    "use": "Criptografía de clave pública y firmas digitales.",
+    "cost": "La exponenciación usa O(log e) multiplicaciones modulares; el costo depende del tamaño en bits.",
+    "note": "Idea en 1977; artículo en 1978. RSA de libro de texto no es seguro para uso directo: requiere esquemas de codificación y parámetros adecuados.",
+    "reference": "Rivest, Shamir y Adleman (1978). A Method for Obtaining Digital Signatures and Public-Key Cryptosystems. CACM 21(2), 120–126.",
+    "url": "https://doi.org/10.1145/359340.359342",
+    "example": "Ejemplo exclusivamente didáctico: n=55, e=3, d=27; 7³ mod 55 = 13 y 13²⁷ mod 55 = 7.",
+    "question": "¿Por qué los ejemplos con primos pequeños no ofrecen seguridad?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 37,
+    "key": "miller",
+    "name": "Miller–Rabin",
+    "year": 1980,
+    "date": "1976 / 1980",
+    "category": "Información y seguridad",
+    "authors": "Gary L. Miller · Michael O. Rabin",
+    "tag": "Buscar testigos de que un número es compuesto.",
+    "idea": "Descompone n−1 en 2ˢd y examina potencias modulares para distintas bases. Un testigo certifica composición; pasar todas las rondas da un probable primo.",
+    "use": "Generación de primos y aritmética computacional.",
+    "cost": "O(k log³ n) con aritmética escolar, para k rondas.",
+    "note": "Miller propuso un test condicional; Rabin lo aleatorizó. Para un compuesto impar, el error es ≤4⁻ᵏ con bases uniformes e independientes.",
+    "reference": "Rabin (1980). Probabilistic algorithm for testing primality. Journal of Number Theory 12(1), 128–138.",
+    "url": "https://doi.org/10.1016/0022-314X(80)90084-0",
+    "example": "Un número que falla con una sola base ya es compuesto; repetir no puede volverlo primo.",
+    "question": "¿Por qué probable primo no significa prueba de primalidad?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 38,
+    "key": "metropolis",
+    "name": "Metropolis–Hastings",
+    "year": 1970,
+    "date": "1953 / 1970",
+    "category": "Aprendizaje y azar",
+    "authors": "Metropolis · Rosenbluth · Rosenbluth · Teller · Teller · Hastings",
+    "tag": "Muestrear una distribución sin conocer su normalización.",
+    "idea": "Propone un movimiento y lo acepta con una probabilidad que compensa la densidad objetivo y la propuesta; así construye una cadena de Markov.",
+    "use": "Inferencia bayesiana, física estadística y estimación Monte Carlo.",
+    "cost": "Costo por paso según modelo y propuesta; convergencia y mezcla no tienen una cota universal simple.",
+    "note": "El artículo de 1953 tiene cinco autores: Nicholas Metropolis, Arianna y Marshall Rosenbluth, Augusta y Edward Teller. W. Keith Hastings generalizó el método en 1970.",
+    "reference": "Hastings (1970). Monte Carlo sampling methods using Markov chains and their applications. Biometrika 57(1), 97–109.",
+    "url": "https://doi.org/10.1093/biomet/57.1.97",
+    "example": "Una caminata acepta algunas propuestas menos probables para explorar más de una región.",
+    "question": "¿Por qué una cadena puede dar muestras muy correlacionadas?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 39,
+    "key": "anneal",
+    "name": "Recocido simulado",
+    "year": 1983,
+    "date": "1983",
+    "category": "Optimización",
+    "authors": "Scott Kirkpatrick · C. Daniel Gelatt Jr. · Mario P. Vecchi",
+    "tag": "Aceptar retrocesos para escapar de trampas.",
+    "idea": "Explora vecinos y acepta algunas soluciones peores con probabilidad dependiente de una temperatura que disminuye.",
+    "use": "Optimización combinatoria y búsqueda en espacios con muchos óptimos locales.",
+    "cost": "O(I·C) para I propuestas y costo C de evaluar cada una.",
+    "note": "Es una metaheurística: los calendarios prácticos no garantizan óptimo. Černý desarrolló una propuesta independiente.",
+    "reference": "Kirkpatrick, Gelatt y Vecchi (1983). Optimization by Simulated Annealing. Science 220(4598), 671–680.",
+    "url": "https://doi.org/10.1126/science.220.4598.671",
+    "example": "Al inicio puede aceptar una ruta 5 unidades peor; con baja temperatura esa aceptación es menos probable.",
+    "question": "¿Qué puede pasar si la temperatura baja demasiado rápido?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 40,
+    "key": "genetic",
+    "name": "Algoritmo genético",
+    "year": 1975,
+    "date": "1975 · libro fundacional",
+    "category": "Optimización",
+    "authors": "John H. Holland · antecedentes de la computación evolutiva",
+    "tag": "Buscar con poblaciones, variación y selección.",
+    "idea": "Mantiene soluciones candidatas, selecciona según aptitud y aplica cruces y mutaciones para generar nuevas poblaciones.",
+    "use": "Diseño, planificación y optimización con representaciones flexibles.",
+    "cost": "O(G·P·C) aproximado: generaciones, población y costo de evaluación.",
+    "note": "Es una familia de metaheurísticas. No garantiza el óptimo y depende de codificación, diversidad y operadores.",
+    "reference": "Holland (1975). Adaptation in Natural and Artificial Systems. Edición revisada MIT Press, 1992.",
+    "url": "https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/",
+    "example": "Representar un horario como un cromosoma y penalizar choques de clases.",
+    "question": "¿Por qué cruzar buenas soluciones puede producir una solución inválida?",
+    "sourceType": "Libro fundacional"
+  },
+  {
+    "id": 41,
+    "key": "kmeans",
+    "name": "k-means",
+    "year": 1967,
+    "date": "1957 / 1967 / 1982",
+    "category": "Aprendizaje y azar",
+    "authors": "Stuart P. Lloyd · James B. MacQueen · Hugo Steinhaus",
+    "tag": "Descubrir grupos acercándolos a su centro.",
+    "idea": "En la variante de Lloyd, alterna asignar cada punto al centro más cercano y recalcular los centros como medias.",
+    "use": "Segmentación, cuantización y análisis exploratorio.",
+    "cost": "O(I·n·k·d) para I iteraciones, n puntos, k grupos y d dimensiones.",
+    "note": "MacQueen introdujo el nombre k-means en 1967; Lloyd desarrolló su variante en 1957 y la publicó en 1982. Puede converger a un óptimo local.",
+    "reference": "MacQueen (1967). Some methods for classification and analysis of multivariate observations. Fifth Berkeley Symposium.",
+    "url": "https://digicoll.lib.berkeley.edu/record/113015",
+    "example": "Puntos (1,1),(1,2),(8,8),(9,8) con k=2 forman dos grupos naturales.",
+    "question": "¿Qué cambia al reescalar una sola variable?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 42,
+    "key": "em",
+    "name": "Algoritmo EM",
+    "year": 1977,
+    "date": "1977",
+    "category": "Aprendizaje y azar",
+    "authors": "Arthur P. Dempster · Nan M. Laird · Donald B. Rubin",
+    "tag": "Aprender cuando faltan piezas.",
+    "idea": "Alterna una etapa E, que calcula expectativas de variables latentes, y una etapa M, que mejora los parámetros del modelo.",
+    "use": "Mezclas gaussianas, datos incompletos y modelos latentes.",
+    "cost": "Costo por iteración específico del modelo; no hay una complejidad única.",
+    "note": "Bajo sus condiciones, la verosimilitud no decrece. La convergencia puede ser lenta y llevar a soluciones locales.",
+    "reference": "Dempster, Laird y Rubin (1977). Maximum Likelihood from Incomplete Data Via the EM Algorithm. JRSS B 39(1), 1–22.",
+    "url": "https://doi.org/10.1111/j.2517-6161.1977.tb01600.x",
+    "example": "En una mezcla de dos gaussianas, E estima responsabilidades y M actualiza medias, covarianzas y pesos.",
+    "question": "¿Qué diferencia una responsabilidad de una etiqueta rígida?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 43,
+    "key": "backprop",
+    "name": "Retropropagación",
+    "year": 1986,
+    "date": "1970s / 1986",
+    "category": "Aprendizaje y azar",
+    "authors": "David E. Rumelhart · Geoffrey E. Hinton · Ronald J. Williams",
+    "tag": "Aprender repartiendo la responsabilidad del error.",
+    "idea": "Aplica la regla de la cadena en orden inverso para calcular eficientemente gradientes de los parámetros de una red.",
+    "use": "Entrenamiento de redes neuronales y diferenciación automática en modo inverso.",
+    "cost": "Una pasada inversa de costo del mismo orden que evaluar el grafo, bajo operaciones diferenciables usuales.",
+    "note": "Hay antecedentes importantes en Linnainmaa y Werbos. El artículo de 1986 difundió su aplicación a redes; el optimizador es un paso distinto.",
+    "reference": "Rumelhart, Hinton y Williams (1986). Learning representations by back-propagating errors. Nature 323, 533–536.",
+    "url": "https://doi.org/10.1038/323533a0",
+    "example": "La pérdida de salida propaga derivadas a capas previas; luego un optimizador actualiza los pesos.",
+    "question": "¿Por qué retropropagar no es lo mismo que descenso por gradiente?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 44,
+    "key": "pagerank",
+    "name": "PageRank",
+    "year": 1998,
+    "date": "1998 / 1999",
+    "category": "Grafos y redes",
+    "authors": "Lawrence Page · Sergey Brin · Rajeev Motwani · Terry Winograd",
+    "tag": "La importancia también llega por los enlaces.",
+    "idea": "Calcula una distribución estacionaria que mezcla seguir enlaces y teletransportarse. Los enlaces desde nodos importantes contribuyen más.",
+    "use": "Ranking de páginas y análisis de importancia en redes dirigidas.",
+    "cost": "O(I·(V+E)) para I iteraciones con una implementación dispersa.",
+    "note": "El trabajo circuló en 1998; el informe de Stanford está fechado en 1999. Los nodos sin salidas requieren tratamiento explícito.",
+    "reference": "Page, Brin, Motwani y Winograd (1999). The PageRank Citation Ranking: Bringing Order to the Web. Stanford InfoLab, informe 422.",
+    "url": "https://ilpubs.stanford.edu/422/",
+    "example": "Recibir un enlace de una página importante puede pesar más que muchos enlaces de páginas periféricas.",
+    "question": "¿Para qué sirve la probabilidad de teletransportación?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 45,
+    "key": "louvain",
+    "name": "Método de Louvain",
+    "year": 2008,
+    "date": "2008",
+    "category": "Grafos y redes",
+    "authors": "Vincent D. Blondel · Jean-Loup Guillaume · Renaud Lambiotte · Étienne Lefebvre",
+    "tag": "Ver comunidades donde antes solo había enlaces.",
+    "idea": "Mueve nodos a comunidades que mejoran modularidad y luego agrega cada comunidad en un supernodo, repitiendo el proceso.",
+    "use": "Detección de comunidades y exploración de redes grandes.",
+    "cost": "Empíricamente rápido; no hay una cota casi lineal universal para todas las entradas y ejecuciones.",
+    "note": "Heurística sensible al orden y a la resolución. Puede devolver comunidades desconectadas; la partición no es una verdad única del sistema.",
+    "reference": "Blondel et al. (2008). Fast unfolding of communities in large networks. J. Stat. Mech., P10008.",
+    "url": "https://arxiv.org/abs/0803.0476",
+    "example": "Dos grupos densos unidos por un puente pueden aparecer como comunidades diferentes.",
+    "question": "¿Un color de comunidad prueba que exista una categoría real?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 46,
+    "key": "node2vec",
+    "name": "node2vec",
+    "year": 2016,
+    "date": "2016",
+    "category": "Grafos y redes",
+    "authors": "Aditya Grover · Jure Leskovec",
+    "tag": "Traducir vecindarios a coordenadas.",
+    "idea": "Genera caminatas sesgadas por p y q y aprende vectores que preservan contextos de vecindad mediante un objetivo tipo skip-gram.",
+    "use": "Clasificación de nodos, similitud y predicción de enlaces.",
+    "cost": "Depende de caminatas, longitud, dimensión y entrenamiento; sin una cota única abreviada.",
+    "note": "No usa etiquetas para generar sus caminatas. Mejorar predicciones depende del target, el protocolo y la información que contiene la red.",
+    "reference": "Grover y Leskovec (2016). node2vec: Scalable Feature Learning for Networks. KDD, 855–864.",
+    "url": "https://arxiv.org/abs/1607.00653",
+    "example": "Dos personas con vecindarios parecidos pueden adquirir embeddings similares aunque no estén conectadas directamente.",
+    "question": "¿Cuándo ayudan las relaciones a predecir algo que los atributos no explican?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 47,
+    "key": "shor",
+    "name": "Algoritmo de Shor",
+    "year": 1994,
+    "date": "1994",
+    "category": "Computación cuántica",
+    "authors": "Peter W. Shor",
+    "tag": "Factorizar encontrando un período.",
+    "idea": "Reduce la factorización a búsqueda de orden y usa una transformada de Fourier cuántica para extraer información del período.",
+    "use": "Complejidad cuántica y estudio de las bases de la criptografía.",
+    "cost": "Tiempo polinómico en log N en el modelo cuántico ideal.",
+    "note": "No es un algoritmo clásico ni resuelve todos los problemas NP. Su ejecución a gran escala exige recursos cuánticos adecuados.",
+    "reference": "Shor (1994; ampliado 1997). Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer.",
+    "url": "https://arxiv.org/abs/quant-ph/9508027",
+    "example": "Para N=15 y base 2, el período 4 ayuda a obtener MCD(2²±1,15), es decir, 3 y 5.",
+    "question": "¿Por qué se mide el tamaño de la entrada como log N?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 48,
+    "key": "grover",
+    "name": "Algoritmo de Grover",
+    "year": 1996,
+    "date": "1996",
+    "category": "Computación cuántica",
+    "authors": "Lov K. Grover",
+    "tag": "Amplificar una respuesta entre muchas posibilidades.",
+    "idea": "Alterna un oráculo que cambia la fase de las soluciones y una difusión que amplifica su amplitud.",
+    "use": "Búsqueda cuántica no estructurada y amplificación de amplitud.",
+    "cost": "O(√N) consultas al oráculo con una solución marcada.",
+    "note": "La mejora es cuadrática en consultas. Construir el oráculo y leer los datos tiene costos; no es un acceso mágico a una base de datos clásica.",
+    "reference": "Grover (1996). A fast quantum mechanical algorithm for database search. STOC, 212–219.",
+    "url": "https://arxiv.org/abs/quant-ph/9605043",
+    "example": "Entre N candidatos con una única solución, se necesitan del orden de √N consultas cuánticas.",
+    "question": "¿Por qué más iteraciones de amplificación no siempre mejoran el resultado?",
+    "sourceType": "Publicación original"
+  },
+  {
+    "id": 49,
+    "key": "christofides",
+    "name": "Algoritmo de Christofides",
+    "year": 1976,
+    "date": "1976",
+    "category": "Optimización",
+    "authors": "Nicos Christofides · trabajo independiente de Anatoliy Serdyukov",
+    "tag": "Una ruta cercana al óptimo, con garantía.",
+    "idea": "Combina un árbol mínimo con un matching perfecto mínimo en los vértices de grado impar; recorre el multigrafo euleriano y ataja repeticiones.",
+    "use": "Aproximación del viajante métrico simétrico.",
+    "cost": "O(n³) con algoritmos clásicos apropiados; razón de aproximación 3/2.",
+    "note": "La garantía exige distancias no negativas, simétricas y desigualdad triangular. Serdyukov obtuvo independientemente una garantía equivalente.",
+    "reference": "Christofides (1976). Worst-case analysis of a new heuristic for the travelling salesman problem. Report 388, CMU. Referencia NIST.",
+    "url": "https://xlinux.nist.gov/dads/HTML/christofides.html",
+    "example": "Si el tour óptimo cuesta 100, la garantía asegura un tour de costo a lo sumo 150.",
+    "question": "¿Qué parte de la prueba usa la desigualdad triangular?",
+    "sourceType": "Referencia institucional"
+  },
+  {
+    "id": 50,
+    "key": "reservoir",
+    "name": "Muestreo de reservorio",
+    "year": 1985,
+    "date": "1985 · referencia clásica",
+    "category": "Aprendizaje y azar",
+    "authors": "Jeffrey S. Vitter · antecedentes de Alan G. Waterman",
+    "tag": "Elegir una muestra de un flujo que no termina.",
+    "idea": "Guarda k elementos. Al leer el elemento i, lo incorpora con probabilidad k/i y, si entra, reemplaza uniformemente una posición del reservorio.",
+    "use": "Muestreo uniforme de flujos y procesamiento de datos con memoria acotada.",
+    "cost": "Algorithm R: O(N) tiempo y O(k) memoria.",
+    "note": "Vitter estudió y mejoró métodos de reservorio en 1985; no fue el único autor de la idea. Algorithm Z evita procesar explícitamente cada candidato.",
+    "reference": "Vitter (1985). Random sampling with a reservoir. ACM TOMS 11(1), 37–57.",
+    "url": "https://doi.org/10.1145/3147.3165",
+    "example": "Para k=1, el elemento i sustituye al actual con probabilidad 1/i. Al final, todos tienen probabilidad 1/N.",
+    "question": "¿Cómo demostrarías por inducción que la muestra es uniforme?",
+    "sourceType": "Publicación original"
+  }
+];
+
+</script><script>
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function readStore(k,f){try{return JSON.parse(localStorage.getItem(k))??f;}catch{return f;}}
+function writeStore(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch{}}
+let favorites=new Set(readStore('atlas-algoritmos-favoritos',[])),category='Todas',favOnly=false,view='grid',routeKeys=null,selected=null,filtered=[],demoTimer=null,heroTimer=null,heroIndex=0,toastTimer;
+const categories=[...new Set(ALGORITHMS.map(a=>a.category))];
+const demoKeys=new Set(['euclides','criba','binaria','merge','quick','heap','bfs','dfs','dijkstra','kruskal','prim','reservoir']);
+const routes={classic:['euclides','binaria','merge','quick','held'],networks:['bfs','dijkstra','pagerank','louvain','node2vec'],limits:['held','christofides','anneal','genetic','reservoir']};
+const photos={
+ newton:['https://przystaneknauka.us.edu.pl/sites/default/files/field/image/sir_isaac_newton_by_sir_godfrey_kneller_bt.jpg','Isaac Newton · pintura de Godfrey Kneller','https://przystaneknauka.us.edu.pl/artykul/rocznica-urodzin-izaaka-newtona'],
+ merge:['https://edu-html.ac-versailles.fr/lyc-rabelais-meudon/JulienMathieuPrecurseurs/Neumann.jpg','John von Neumann','https://edu-html.ac-versailles.fr/lyc-rabelais-meudon/JulienMathieuPrecurseurs/Neumann.html'],
+ quick:['https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sir_Tony_Hoare_IMG_5125.jpg/1280px-Sir_Tony_Hoare_IMG_5125.jpg','Tony Hoare · EPFL, 2011','https://commons.wikimedia.org/wiki/File:Sir_Tony_Hoare_IMG_5125.jpg'],
+ kmp:['https://cs.stanford.edu/~knuth/Knuth-A-small.jpg','Donald E. Knuth · uno de los coautores','https://cs.stanford.edu/~knuth/graphics.html'],
+ union:['https://eztf.lu.lv/fileadmin/_processed_/3/e/csm_Robert_Tarjan_2025_f2abb02b10.jpg','Robert E. Tarjan','https://eztf.lu.lv/en/about-us/news/detail-view/t/103473/'],
+ dijkstra:['https://www.computer.org/wp-media/2018/04/02170212/edsger-dijkstra-e1528238724590.jpg','Edsger W. Dijkstra','https://www.computer.org/profiles/edsger-dijkstra'],
+ bellman:['https://biographs.org/images/5/5632/richard-bellman-2.jpg','Richard Bellman · uno de los autores','https://biographs.org/richard-bellman'],
+ held:['https://math.berkeley.edu/sites/default/files/styles/openberkeley_brand_widgets_rectangle/public/rkarp_2020.jpg?itok=G9si3hXF&timestamp=1663471803','Richard M. Karp · uno de los coautores','https://math.berkeley.edu/people/faculty/richard-karp'],
+ viterbi:['https://magazine.viterbi.usc.edu/wp-content/uploads/2024/12/802_AndrewViterbiGift_Thumbnail.png','Andrew J. Viterbi','https://magazine.viterbi.usc.edu/fall-2024/alumni/andrew-viterbi-builds-on-a-lifetime-of-innovation-and-giving/'],
+ svd:['https://cs.nyu.edu/overton/genearoundtheworld/gene.jpg','Gene H. Golub · uno de los coautores','https://cs.nyu.edu/overton/genearoundtheworld/'],
+ rsa:['https://simons.berkeley.edu/sites/default/files/styles/post_card_lg_2x/public/rivest_photo.jpg?h=7e2c02fb&itok=0z_sa1Qy','Ronald L. Rivest · uno de los coautores','https://simons.berkeley.edu/people/ron-rivest'],
+ genetic:['https://www.timeshighereducation.com/sites/default/files/obituary-john-holland-1929-2015.jpg','John H. Holland','https://www.timeshighereducation.com/people/obituary-john-holland-1929-2015'],
+ backprop:['https://s41721.pcdn.co/wp-content/uploads/2024/01/geoff5-1.jpg','Geoffrey E. Hinton · uno de los coautores','https://aiforgood.itu.int/speaker/geoffrey-hinton/'],
+ louvain:['https://www.netmob.org/www25/images/organizers/vincent.webp','Vincent D. Blondel · uno de los coautores','https://www.netmob.org/www25/'],
+ node2vec:['https://localist-images.azureedge.net/photos/49144318832801/huge/d6e7e822f5fc091be289f2b6389f8cc7ea3d09bf.jpg','Jure Leskovec · uno de los coautores','https://events.stanford.edu/event/jure-leskovec-stanford'],
+ shor:['https://news.mit.edu/sites/default/files/download/202209/MIT-Shor-Peter-01-PRESS.jpg','Peter W. Shor','https://news.mit.edu/2022/shor-spielman-breakthrough-prize-0922'],
+ grover:['https://datascience.columbia.edu/wp-content/uploads/2021/10/dotquantum-bio-Lov-Kumar-Grover.jpg','Lov K. Grover','https://datascience.columbia.edu/event/dr-lov-grover-is-quantum-searching-a-universal-property-of-nature/']
+};photos.select=photos.quick;photos.dfs=photos.union;photos.rabin=photos.held;photos.matching=photos.held;
+function avatar(a,large=false){let p=photos[a.key];let initials=a.authors.split('·')[0].trim().split(/\s+/).filter(w=>w.length>1).slice(0,2).map(w=>w[0]).join('');if(['euclides','criba','gauss'].includes(a.key))initials={euclides:'E',criba:'EC',gauss:'Σ'}[a.key];return `<span class="avatar" aria-label="${esc(p?p[1]:a.authors)}"><span aria-hidden="true">${esc(initials)}</span>${p?`<img ${large?'':'loading="lazy"'} decoding="async" src="${esc(p[0])}" alt="Retrato de ${esc(p[1])}" referrerpolicy="no-referrer">`:''}</span>`;}
+document.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.remove();},true);
+const C=['#a1dfc9','#7bb5ce','#d0b27a','#bb94c0','#dd9d8f'];
+function svg(inner,w=360,h=160){return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g font-family="monospace">${inner}</g></svg>`;}
+function ln(x1,y1,x2,y2,color='#789599',sw=1,op=.4){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${sw}" opacity="${op}"/>`;}
+function circle(x,y,r,color,op=1){return `<circle cx="${x}" cy="${y}" r="${r}" fill="${color}" opacity="${op}"/>`;}
+function txt(x,y,t,color='#a1dfc9',size=12,anchor='middle'){return `<text x="${x}" y="${y}" fill="${color}" font-size="${size}" text-anchor="${anchor}">${esc(t)}</text>`;}
+const P=[[38,86],[85,44],[87,128],[146,78],[203,40],[203,126],[261,79],[318,118],[320,35]];
+const E=[[0,1,4],[0,2,2],[1,3,3],[2,3,1],[1,4,7],[3,4,2],[3,5,4],[2,5,8],[4,6,3],[5,6,2],[5,7,6],[6,7,2],[6,8,5],[7,8,2]];
+function graphSvg(state={},hero=false){const p=hero?P.map(([x,y])=>[x*1.45+20,y*1.8+15]):P;const w=hero?560:360,h=hero?320:160;let s='';for(let i=0;i<E.length;i++){const[u,v,wt]=E[i],hi=(state.edges||[]).includes(i);s+=ln(...p[u],...p[v],hi?'#a1dfc9':'#72989e',hi?2.7:1,hi?1:.28);if(hero||state.weights)s+=txt((p[u][0]+p[v][0])/2,(p[u][1]+p[v][1])/2-5,wt,hi?'#d4f3e4':'#719399',hero?11:8);}p.forEach(([x,y],i)=>{let active=i===state.current,visited=(state.visited||[]).includes(i),colors=state.communities?C[i<3?0:i<6?1:2]:[null];let color=active?'#e9c88c':visited?'#a1dfc9':state.communities?colors:'#70969f';if(active)s+=circle(x,y,hero?23:14,color,.1);s+=circle(x,y,hero?8:5,color);if(hero||state.labels)s+=txt(x,y-(hero?17:10),String.fromCharCode(65+i),active?'#e9c88c':'#b6c9c9',hero?11:8);if(state.dist)s+=txt(x,y+23,Number.isFinite(state.dist[i])?state.dist[i]:'∞','#97b7ba',11);});return svg(s,w,h);}
+function artwork(a){let s='',k=a.key;if(a.category==='Grafos y redes'||['astar','held','christofides'].includes(k)){if(k==='node2vec'){for(let j=0;j<3;j++)for(let i=0;i<10;i++){let x=90+j*85+Math.sin(i*5+j)*22,y=80+Math.cos(i*3+j)*34;s+=circle(x,y,3,C[j],.7);}s+=txt(180,145,'vecindarios → coordenadas','#70989d',8);return svg(s);}return graphSvg({edges:['dijkstra','astar'].includes(k)?[1,3,5,8,11]:['prim','kruskal','christofides'].includes(k)?[1,3,5,8,11,12,2,6]:[],visited:k==='bfs'?[0,1,2,3]:k==='dfs'?[0,1,3,4]:[],communities:k==='louvain'||k==='pagerank',current:k==='dijkstra'?6:undefined});}
+if(['merge','quick','heap','select','binaria','reservoir'].includes(k)){let vals=[4,9,3,7,2,10,5,8,6,1,7,4];vals.forEach((v,i)=>{let x=42+i*24,h=v*8;s+=`<rect x="${x}" y="${132-h}" width="14" height="${h}" rx="2" fill="${C[(k==='quick'?i<6?0:1:k==='merge'?Math.floor(i/3)%3:k==='heap'?i%3:i===5?0:1)]}" opacity="${i%4===0?1:.65}"/>`;});s+=ln(32,133,328,133,'#809b9d',1,.35);if(k==='quick')s+=txt(180,152,'< pivote >','#72999b',8);return svg(s);}
+if(k==='euclides'){s=txt(180,66,'252 = 2 × 105 + 42','#a1dfc9',18)+txt(180,94,'105 = 2 × 42 + 21','#8fb7c6',15)+txt(180,122,'MCD = 21','#d6ba87',11);return svg(s);}if(k==='criba'){for(let i=2;i<42;i++){let prime=true;for(let j=2;j*j<=i;j++)if(i%j===0)prime=false;let x=67+((i-2)%10)*25,y=45+Math.floor((i-2)/10)*28;s+=txt(x,y,i,prime?'#a1dfc9':'#52737b',prime?12:10);}return svg(s);}
+if(k==='newton'||k==='cg'||k==='anneal'){let path='';for(let x=40;x<=320;x+=4){let y=k==='anneal'?85+25*Math.sin(x/24)+18*Math.sin(x/53):125-((x-180)*(x-180))/200;path+=(x===40?'M':'L')+x+','+y;}s+=`<path d="${path}" fill="none" stroke="#75a7b5" stroke-width="1.5"/>`;s+=ln(45,125,320,125,'#85a19c',1,.3);[90,135,175,205,215].forEach((x,i)=>s+=circle(x,k==='anneal'?85+25*Math.sin(x/24)+18*Math.sin(x/53):125-((x-180)*(x-180))/200,i===4?5:3,C[0],.4+i*.14));return svg(s);}
+if(k==='fft'){for(let j=0;j<2;j++){let path='';for(let x=35;x<328;x+=3){let y=70+j*45+15*Math.sin((x-35)/(j?7:20));path+=(x===35?'M':'L')+x+','+y;}s+=`<path d="${path}" fill="none" stroke="${C[j]}" stroke-width="1.5" opacity=".8"/>`;}return svg(s);}
+if(['kmeans','em','genetic','metropolis'].includes(k)){for(let j=0;j<3;j++){for(let i=0;i<11;i++){let x=88+j*85+Math.sin(i*2.3+j)*25,y=86+Math.cos(i*5+j)*28;s+=circle(x,y,3,C[j],.6);}s+=circle(88+j*85,86,7,C[j],.9)+circle(88+j*85,86,3,'#18363e');}return svg(s);}
+if(['kmp','rabin','needle','edit','lz'].includes(k)){if(['needle','edit'].includes(k)){for(let i=0;i<6;i++)for(let j=0;j<8;j++){let x=88+j*25,y=30+i*19;s+=`<rect x="${x}" y="${y}" width="19" height="14" rx="1" fill="${i===Math.floor(j*.7)?C[0]:'#638591'}" opacity="${i===Math.floor(j*.7)?.85:.15+(i+j)%3*.06}"/>`;}return svg(s);}s+=txt(180,72,k==='lz'?'A B C A B C A B C':'A B A B A B A C','#a1dfc9',19)+txt(180,104,k==='lz'?'↖ referencia al pasado':'A B A B A C','#79a8b8',16);return svg(s);}
+if(k==='huffman'){let nodes=[[180,32],[110,70],[250,70],[75,117],[145,117],[220,117],[285,117]];[[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]].forEach(([u,v])=>s+=ln(...nodes[u],...nodes[v],'#a1dfc9',1,.4));nodes.forEach(([x,y],i)=>s+=circle(x,y,i<3?5:8,C[i<3?1:0],.8));return svg(s);}
+if(k==='backprop'||k==='viterbi'){let layers=k==='backprop'?[3,4,3,1]:[3,3,3,3];let n=layers.map((q,l)=>Array.from({length:q},(_,j)=>[68+l*75,80+(j-(q-1)/2)*26]));n.forEach((ns,l)=>{if(l)n[l-1].forEach(a=>ns.forEach(b=>s+=ln(...a,...b,'#7ca7b3',.7,.25)));ns.forEach(([x,y],j)=>s+=circle(x,y,5,C[(l+j)%3]));});return svg(s);}
+if(k==='shor'||k==='grover'){for(let i=0;i<16;i++){let theta=i/16*Math.PI*2;s+=ln(180,86,180+60*Math.cos(theta),86+60*Math.sin(theta),C[i%3],1,.2)+circle(180+60*Math.cos(theta),86+60*Math.sin(theta),i===3?7:3,i===3?C[0]:C[1],.8);}s+=txt(180,90,k==='shor'?'|r⟩':'|ψ⟩','#a1dfc9',18);return svg(s);}
+if(['rsa','miller','karatsuba','strassen'].includes(k)){let f={rsa:['c = mᵉ mod n','m = cᵈ mod n'],miller:['n − 1 = 2ˢ · d','aᵈ mod n'],karatsuba:['3 × T(n/2)','n^1.585'],strassen:['7 × T(n/2)','n^2.807']};return svg(txt(180,78,f[k][0],'#a1dfc9',21)+txt(180,112,f[k][1],'#7faab9',15));}
+for(let b=0;b<3;b++)for(let i=0;i<4;i++)for(let j=0;j<4;j++){let x=49+b*100+j*17,y=48+i*18;s+=txt(x,y,i===j?(b+1)*2:((i+j+b)%4),i===j?'#a1dfc9':'#658892',11);}return svg(s);}
+function buildCategories(){ $('#categories').innerHTML=['Todas',...categories].map(c=>`<button class="chip ${category===c?'active':''}" aria-pressed="${category===c}" data-category="${esc(c)}">${esc(c)}<span>${c==='Todas'?50:ALGORITHMS.filter(a=>a.category===c).length}</span></button>`).join(''); }
+function render(){let query=norm($('#search').value.trim()),era=$('#era').value;filtered=ALGORITHMS.filter(a=>(category==='Todas'||a.category===category)&&(!favOnly||favorites.has(a.key))&&(!routeKeys||routeKeys.includes(a.key))&&(!query||norm([a.name,a.authors,a.date,a.idea,a.use,a.category].join(' ')).includes(query))&&(era==='all'||era==='ancient'&&a.year<1900||era==='early'&&a.year>=1900&&a.year<1970||era==='modern'&&a.year>=1970&&a.year<2000||era==='recent'&&a.year>=2000));let mode=$('#sort').value;if(view==='timeline'||mode==='old')filtered.sort((a,b)=>a.year-b.year||a.id-b.id);else if(mode==='new')filtered.sort((a,b)=>b.year-a.year||a.id-b.id);else if(mode==='name')filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));else if(routeKeys)filtered.sort((a,b)=>routeKeys.indexOf(a.key)-routeKeys.indexOf(b.key));
+$('#cards').className='cards'+(view==='timeline'?' timeline':'');$('#cards').innerHTML=filtered.map(a=>`<article class="card" data-key="${a.key}"><button class="card-art" data-open="${a.key}" aria-label="Explorar ${esc(a.name)}">${artwork(a)}<span class="artmeta"><span>${String(a.id).padStart(2,'0')} / ATLAS</span><span>ESQUEMA CONCEPTUAL</span></span>${demoKeys.has(a.key)?'<span class="demo-badge">Demo paso a paso</span>':''}</button><button class="card-fav ${favorites.has(a.key)?'on':''}" data-fav="${a.key}" aria-label="${favorites.has(a.key)?'Quitar de':'Añadir a'} favoritos: ${esc(a.name)}" aria-pressed="${favorites.has(a.key)}">${favorites.has(a.key)?'★':'☆'}</button><div class="card-content"><div class="card-kicker">${esc(a.category)} / ${esc(a.date)}</div><h3><button data-open="${a.key}">${esc(a.name)}</button></h3><p class="tag">${esc(a.tag)}</p><div class="author">${avatar(a)}<span>${esc(a.authors)}</span></div><div class="card-bottom"><a class="paper-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Fuente ↗</a><button class="explore" data-open="${a.key}">Explorar ficha ↗</button></div></div></article>`).join('');$('#empty').hidden=filtered.length>0;$('#resultCount').textContent=`${filtered.length} de 50 algoritmos · ${routeKeys?'recorrido seleccionado':category==='Todas'?'todas las áreas':category}${favOnly?' · favoritos':''}`;$('#favCount').textContent=favorites.size;buildCategories();}
+function reset(){category='Todas';favOnly=false;routeKeys=null;$('#search').value='';$('#era').value='all';$('#sort').value='editorial';$('#favFilter').setAttribute('aria-pressed','false');render();}
+function toggleFav(key){if(favorites.has(key))favorites.delete(key);else favorites.add(key);writeStore('atlas-algoritmos-favoritos',[...favorites]);render();if(selected)updateDetailFav();}
+function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('show');toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),2600);}
+function updateDetailFav(){let on=favorites.has(selected.key);$('#detailFav').textContent=on?'★':'☆';$('#detailFav').setAttribute('aria-label',on?'Quitar de favoritos':'Añadir a favoritos');$('#detailFav').setAttribute('aria-pressed',String(on));}
+function citation(a){return `${a.reference} ${a.url}`;}
+async function copyCitation(){let t=citation(selected);try{await navigator.clipboard.writeText(t);toast('Referencia copiada');}catch{download('referencia-'+selected.key+'.txt',t,'text/plain');toast('Referencia descargada');}}
+let detailOrder=[];
+function openDetail(key,keepOrder=false){clearInterval(demoTimer);demoTimer=null;selected=ALGORITHMS.find(a=>a.key===key);if(!selected)return;let a=selected,p=photos[a.key];if(!keepOrder)detailOrder=filtered.length?filtered.map(a=>a.key):ALGORITHMS.map(a=>a.key);if(!detailOrder.includes(key))detailOrder=ALGORITHMS.map(a=>a.key);
+$('#detailOverline').textContent=`${String(a.id).padStart(2,'0')} / 50 · ${a.category} · ${a.date}`;$('#detailBody').innerHTML=`<div class="detail-main"><div class="detail-head"><div><h2 id="detailTitle">${esc(a.name)}</h2><p class="tag">${esc(a.tag)}</p></div><div class="detail-portrait">${avatar(a,true)}<small>${esc(p?p[1]:a.authors.split('·')[0])}</small>${p?`<a href="${esc(p[2])}" target="_blank" rel="noopener noreferrer">Fuente del retrato ↗</a>`:'<small>Monograma de referencia</small>'}</div></div><p class="detail-authors">${esc(a.authors)}</p>${demoKeys.has(a.key)?`<section class="demo"><h3>DEMO PASO A PASO · ${esc(a.name)}</h3><div id="demoDisplay" class="demo-display"></div><div class="demo-controls"><button id="demoBack" aria-label="Paso anterior">← Anterior</button><button id="demoPlay">▶ Reproducir</button><button id="demoNext">Siguiente →</button><button id="demoReset" aria-label="Reiniciar ejemplo">↺</button><label>Ejemplo <select id="demoCase"><option value="0">A</option><option value="1">B</option></select></label><span class="demo-progress" id="demoProgress"></span></div><p class="demo-explain" id="demoExplain" aria-live="polite"></p></section>`:''}<div class="detail-fields"><div><h3>EL PROBLEMA Y LA IDEA</h3><p>${esc(a.idea)}</p></div><div><h3>POR QUÉ IMPORTA</h3><p>${esc(a.use)}</p></div><div class="wide cost"><h3>COMPLEJIDAD Y CONDICIONES</h3><p>${esc(a.cost)}</p></div><div class="wide history"><h3>UNA NOTA SOBRE SU HISTORIA</h3><p>${esc(a.note)}</p></div><div class="wide example"><h3>UN EJEMPLO PARA ENTENDERLO</h3><p>${esc(a.example)}</p></div></div><div class="sourcebox"><div class="source-type">${esc(a.sourceType)}</div><h3>VOLVER A LA FUENTE</h3><p>${esc(a.reference)}</p><div class="source-actions"><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Leer la referencia ↗</a><button id="copyRef" class="textbutton">Copiar referencia</button><button id="printRef" class="textbutton">Imprimir ficha</button></div></div><div class="question"><b>?</b><p>${esc(a.question)}</p></div></div>`;
+$('#position').textContent=`${detailOrder.indexOf(key)+1} / ${detailOrder.length} de la selección`;updateDetailFav();if(!$('#detail').open)$('#detail').showModal();$('#detail').scrollTop=0;document.body.style.overflow='hidden';history.replaceState(null,'','#algoritmo='+a.key);$('#copyRef').onclick=copyCitation;$('#printRef').onclick=()=>window.print();if(demoKeys.has(a.key))initDemo(a.key);}
+function closeDetail(){clearInterval(demoTimer);demoTimer=null;$('#detail').close();document.body.style.overflow='';history.replaceState(null,'','#coleccion');}
+function navigateDetail(n){let i=detailOrder.indexOf(selected.key);openDetail(detailOrder[(i+n+detailOrder.length)%detailOrder.length],true);}
+function download(name,content,type='text/plain'){let b=new Blob([content],{type:type+';charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+$('#bib').onclick=()=>{let text='ATLAS DE ALGORITMOS — BIBLIOGRAFÍA\nColección académica de Alfonso Meléndez\nSelección: '+filtered.length+' algoritmos\n\n'+filtered.map(a=>`${String(a.id).padStart(2,'0')}. ${a.name} (${a.date})\nAutoría y antecedentes: ${a.authors}\n${citation(a)}\nTipo: ${a.sourceType}\n`).join('\n');download('Bibliografia_Algoritmos.txt',text);toast('Bibliografía descargada');};
+$('#search').addEventListener('input',render);$('#sort').onchange=render;$('#era').onchange=render;$('#categories').onclick=e=>{let b=e.target.closest('[data-category]');if(b){category=b.dataset.category;routeKeys=null;render();}};$('#cards').onclick=e=>{let f=e.target.closest('[data-fav]');if(f){toggleFav(f.dataset.fav);return;}let b=e.target.closest('[data-open]');if(b)openDetail(b.dataset.open);};
+$('#favFilter').onclick=()=>{favOnly=!favOnly;$('#favFilter').setAttribute('aria-pressed',String(favOnly));render();};$('#reset').onclick=reset;$('#emptyReset').onclick=reset;
+function changeView(v){view=v;$('#gridView').classList.toggle('selected',v==='grid');$('#timeView').classList.toggle('selected',v==='timeline');$('#gridView').setAttribute('aria-pressed',String(v==='grid'));$('#timeView').setAttribute('aria-pressed',String(v==='timeline'));$('#sort').disabled=v==='timeline';render();}
+$('#gridView').onclick=()=>changeView('grid');$('#timeView').onclick=()=>changeView('timeline');$('#random').onclick=()=>{let list=filtered.length?filtered:ALGORITHMS;openDetail(list[Math.floor(Math.random()*list.length)].key);};
+$$('[data-route]').forEach(b=>b.onclick=()=>{reset();routeKeys=routes[b.dataset.route];render();$('#coleccion').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+$('#closeDetail').onclick=closeDetail;$('#detailFav').onclick=()=>toggleFav(selected.key);$('#prev').onclick=()=>navigateDetail(-1);$('#next').onclick=()=>navigateDetail(1);$('#detail').addEventListener('cancel',e=>{e.preventDefault();closeDetail();});$('#detail').addEventListener('click',e=>{if(e.target===$('#detail')){let r=$('#detail').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDetail();}});document.addEventListener('keydown',e=>{if($('#detail').open&&!['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName)){if(e.key==='ArrowRight')navigateDetail(1);if(e.key==='ArrowLeft')navigateDetail(-1);}});
+let theme=readStore('atlas-algoritmos-tema','dark');function applyTheme(){document.documentElement.dataset.theme=theme;$('#theme').textContent=theme==='dark'?'☼':'☾';$('#theme').setAttribute('aria-label',`Cambiar a tema ${theme==='dark'?'claro':'oscuro'}`);$('meta[name="theme-color"]').content=theme==='dark'?'#0b1d23':'#f6f5ef';}$('#theme').onclick=()=>{theme=theme==='dark'?'light':'dark';applyTheme();writeStore('atlas-algoritmos-tema',theme);};applyTheme();
+// Ejemplos ejecutables. Cada fotograma se obtiene del algoritmo correspondiente.
+function sortSteps(key,values){let v=[...values],steps=[{type:'bars',v:[...v],active:[],message:'Entrada inicial: '+v.join(', ')+'.'}];const snap=(active,message,done=[])=>steps.push({type:'bars',v:[...v],active:[...active],done:[...done],message});if(key==='merge'){function merge(l,r){if(r-l<2)return;let m=(l+r)>>1;merge(l,m);merge(m,r);let out=[],i=l,j=m;while(i<m||j<r){if(j>=r||i<m&&v[i]<=v[j])out.push(v[i++]);else out.push(v[j++]);}out.forEach((x,k)=>v[l+k]=x);snap(Array.from({length:r-l},(_,i)=>i+l),`Mezclar los segmentos [${l},${m}) y [${m},${r}): quedan ordenados ${out.join(', ')}.`);}merge(0,v.length);}else if(key==='quick'){function q(l,r){if(l>=r)return;let pivot=v[r],i=l;for(let j=l;j<r;j++)if(v[j]<pivot){[v[i],v[j]]=[v[j],v[i]];i++;}[v[i],v[r]]=[v[r],v[i]];snap([i],`Pivote ${pivot} queda en la posición ${i+1}. A su izquierda hay valores menores; a la derecha, mayores o iguales.`);q(l,i-1);q(i+1,r);}q(0,v.length-1);}else{function down(i,n){while(2*i+1<n){let j=2*i+1;if(j+1<n&&v[j+1]>v[j])j++;if(v[i]>=v[j])break;[v[i],v[j]]=[v[j],v[i]];i=j;}}for(let i=Math.floor(v.length/2)-1;i>=0;i--)down(i,v.length);snap([0],'Construcción del montículo máximo: la raíz contiene el mayor valor.');for(let n=v.length-1;n>0;n--){[v[0],v[n]]=[v[n],v[0]];down(0,n);snap([0],`Extraer ${v[n]} y restaurar el montículo en las primeras ${n} posiciones.`,Array.from({length:v.length-n},(_,j)=>n+j));}}
+snap([],`Resultado: ${v.join(', ')}.`,v.map((_,i)=>i));return steps;}
+function graphSteps(key,variant=0){let edges=E.map(([u,v,w])=>[u,v,variant?w+((u+v)%3):w]),n=P.length,steps=[],visited=[],chosen=[],dist=Array(n).fill(Infinity),prev=Array(n).fill(-1);dist[0]=0;
+const snap=(message,current)=>steps.push({type:'graph',visited:[...visited],edges:[...chosen],current,dist:key==='dijkstra'?[...dist]:null,weights:['dijkstra','kruskal','prim'].includes(key),message});snap('Grafo de ejemplo no dirigido. Origen A; pesos no negativos.');
+if(key==='bfs'){let bag=[0],seen=new Set([0]);while(bag.length){let u=bag.shift();visited.push(u);if(prev[u]!==-1)chosen.push(prev[u]);let neighbors=edges.map(([a,b],i)=>a===u?[b,i]:b===u?[a,i]:null).filter(Boolean).sort((a,b)=>a[0]-b[0]);for(let[v,i]of neighbors)if(!seen.has(v)){seen.add(v);prev[v]=i;bag.push(v);}snap(`Visitar ${String.fromCharCode(65+u)}. Cola: ${bag.map(v=>String.fromCharCode(65+v)).join(', ')||'vacía'}.`,u);}}
+else if(key==='dfs'){let seen=new Set();function visit(u){seen.add(u);visited.push(u);if(prev[u]!==-1)chosen.push(prev[u]);snap(`Entrar en ${String.fromCharCode(65+u)}. Explorar en profundidad antes de regresar.`,u);let neighbors=edges.map(([a,b],i)=>a===u?[b,i]:b===u?[a,i]:null).filter(Boolean).sort((a,b)=>a[0]-b[0]);for(let[v,i]of neighbors)if(!seen.has(v)){prev[v]=i;visit(v);snap(`Regresar a ${String.fromCharCode(65+u)} tras terminar la rama de ${String.fromCharCode(65+v)}.`,u);}}visit(0);snap('Recorrido DFS terminado. Todos los vértices de esta componente han sido explorados.');}
+else if(key==='dijkstra'){while(visited.length<n){let u=-1;for(let i=0;i<n;i++)if(!visited.includes(i)&&(u<0||dist[i]<dist[u]))u=i;if(u<0||!Number.isFinite(dist[u]))break;visited.push(u);if(prev[u]!==-1)chosen.push(prev[u]);for(let i=0;i<edges.length;i++){let[a,b,w]=edges[i],v=a===u?b:b===u?a:-1;if(v>=0&&!visited.includes(v)&&dist[u]+w<dist[v]){dist[v]=dist[u]+w;prev[v]=i;}}snap(`Fijar ${String.fromCharCode(65+u)} con distancia ${dist[u]}. Relajar sus aristas actualiza las distancias pendientes.`,u);}snap('Todas las distancias son finales. Los enlaces resaltados forman un árbol de caminos mínimos desde A.');}
+else if(key==='kruskal'){let parent=Array.from({length:n},(_,i)=>i);function root(u){while(parent[u]!==u){parent[u]=parent[parent[u]];u=parent[u];}return u;}let sorted=edges.map((e,i)=>({e,i})).sort((a,b)=>a.e[2]-b.e[2]||a.i-b.i);for(let{e:[u,v,w],i}of sorted){let x=root(u),y=root(v);if(x!==y){parent[x]=y;chosen.push(i);visited=[...new Set(chosen.flatMap(j=>edges[j].slice(0,2)))];snap(`Aceptar ${String.fromCharCode(65+u)}–${String.fromCharCode(65+v)} de peso ${w}: une componentes distintas.`,v);}else snap(`Descartar ${String.fromCharCode(65+u)}–${String.fromCharCode(65+v)} de peso ${w}: formaría un ciclo.`);if(chosen.length===n-1)break;}snap(`Árbol mínimo terminado: ${n-1} aristas, peso total ${chosen.reduce((s,i)=>s+edges[i][2],0)}.`);}
+else{visited=[0];snap('Comenzar el árbol de Prim con A.',0);while(visited.length<n){let pick=-1;for(let i=0;i<edges.length;i++){let[u,v,w]=edges[i];if(visited.includes(u)!==visited.includes(v)&&(pick<0||w<edges[pick][2]))pick=i;}if(pick<0)break;let[u,v,w]=edges[pick],newNode=visited.includes(u)?v:u;chosen.push(pick);visited.push(newNode);snap(`Agregar ${String.fromCharCode(65+u)}–${String.fromCharCode(65+v)} de peso ${w}: la más barata que sale del árbol.`,newNode);}snap(`Árbol mínimo terminado. Peso total ${chosen.reduce((s,i)=>s+edges[i][2],0)}.`);}
+steps.forEach(s=>s.variant=variant);return steps;}
+function makeSteps(key,variant){if(['merge','quick','heap'].includes(key))return sortSteps(key,variant?[9,3,6,1,8,2,7,4]:[7,2,6,1,8,3,5,4]);if(['bfs','dfs','dijkstra','kruskal','prim'].includes(key))return graphSteps(key,variant);
+if(key==='euclides'){let a=variant?1071:252,b=variant?462:105,steps=[{type:'numbers',v:[a,b],active:[],message:`Calcular el MCD de ${a} y ${b}.`}];while(b){let q=Math.floor(a/b),r=a%b;steps.push({type:'numbers',v:[a,b,r],active:[2],message:`${a} = ${q} × ${b} + ${r}. Sustituir el par por (${b}, ${r}).`});[a,b]=[b,r];}steps.push({type:'numbers',v:[a],active:[0],message:`Residuo cero: el máximo común divisor es ${a}.`});return steps;}
+if(key==='criba'){let n=variant?50:35,v=Array.from({length:n-1},(_,i)=>i+2),out=[];let steps=[{type:'numbers',v,out:[],active:[],message:`Buscar todos los primos hasta ${n}. El 1 no es primo.`}];for(let p=2;p*p<=n;p++)if(!out.includes(p)){for(let m=p*p;m<=n;m+=p)if(!out.includes(m))out.push(m);steps.push({type:'numbers',v,out:[...out],active:[p-2],message:`El ${p} no está marcado: es primo. Marcar sus múltiplos desde ${p*p}.`});}steps.push({type:'numbers',v,out:[...out],active:v.map((x,i)=>out.includes(x)?-1:i).filter(i=>i>=0),message:`Quedan los primos: ${v.filter(x=>!out.includes(x)).join(', ')}.`});return steps;}
+if(key==='binaria'){let v=[2,5,8,12,16,23,38,42,57,61,75],target=variant?75:23,l=0,r=v.length-1,out=[],steps=[{type:'numbers',v,active:[],message:`Buscar ${target} en la secuencia ordenada.`}];while(l<=r){let m=l+Math.floor((r-l)/2);steps.push({type:'numbers',v,out:[...out],active:[m],message:`Intervalo ${l+1}…${r+1}. Centro: ${v[m]}. ${v[m]===target?'Objetivo encontrado.':v[m]<target?'Descartar la mitad izquierda.':'Descartar la mitad derecha.'}`});if(v[m]===target)break;if(v[m]<target){for(let i=l;i<=m;i++)out.push(v[i]);l=m+1;}else{for(let i=m;i<=r;i++)out.push(v[i]);r=m-1;}}return steps;}
+if(key==='reservoir'){let k=variant?3:2,stream=Array.from({length:10},(_,i)=>i+1),res=stream.slice(0,k),seed=variant?71:42;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};let steps=[{type:'numbers',v:[...res],active:[],message:`Reservorio inicial de ${k} elementos. Semilla fija para reproducir el ejemplo.`}];for(let i=k;i<stream.length;i++){let j=Math.floor(random()*(i+1)),accepted=j<k;if(accepted)res[j]=stream[i];steps.push({type:'numbers',v:[...res],active:accepted?[j]:[],message:`Elemento ${i+1}: elegir j uniformemente entre 1 y ${i+1}. Sale ${j+1}: ${accepted?'entra y sustituye la posición '+(j+1):'no entra'}. Probabilidad de inclusión ${k}/${i+1}.`});}steps.push({type:'numbers',v:[...res],active:res.map((_,i)=>i),message:`Muestra final: ${res.join(', ')}. Cada elemento del flujo tiene probabilidad ${k}/10 de estar en la muestra.`});return steps;}
+return [];}
+let demoSteps=[],demoIndex=0;
+function initDemo(key){demoSteps=makeSteps(key,0);demoIndex=0;function stop(){clearInterval(demoTimer);demoTimer=null;$('#demoPlay').textContent='▶ Reproducir';}$('#demoBack').onclick=()=>{stop();demoIndex=Math.max(0,demoIndex-1);renderDemo();};$('#demoNext').onclick=()=>{stop();demoIndex=Math.min(demoSteps.length-1,demoIndex+1);renderDemo();};$('#demoReset').onclick=()=>{stop();demoIndex=0;renderDemo();};$('#demoCase').onchange=()=>{stop();demoSteps=makeSteps(key,Number($('#demoCase').value));demoIndex=0;renderDemo();};$('#demoPlay').onclick=()=>{if(demoTimer){stop();return;}if(demoIndex===demoSteps.length-1)demoIndex=0;renderDemo();$('#demoPlay').textContent='Ⅱ Pausar';demoTimer=setInterval(()=>{if(demoIndex>=demoSteps.length-1){stop();return;}demoIndex++;renderDemo();},1100);};renderDemo();}
+function renderDemo(){let s=demoSteps[demoIndex],el=$('#demoDisplay');if(!s)return;el.className='demo-display'+(s.type==='numbers'?' numbers':s.type==='graph'?' graph':'');if(s.type==='graph'){if(s.variant){let original=E.map(e=>e[2]);E.forEach(e=>e[2]+=((e[0]+e[1])%3));el.innerHTML=graphSvg({...s,labels:true});E.forEach((e,i)=>e[2]=original[i]);}else el.innerHTML=graphSvg({...s,labels:true});}else if(s.type==='bars')el.innerHTML=s.v.map((v,i)=>`<div class="bar ${(s.active||[]).includes(i)?'active':''} ${(s.done||[]).includes(i)?'done':''}" style="height:${v/Math.max(...s.v)*100}%">${v}</div>`).join('');else el.innerHTML=s.v.map((v,i)=>`<span class="num ${(s.active||[]).includes(i)?'active':''} ${(s.out||[]).includes(v)?'out':''}">${v}</span>`).join('');$('#demoExplain').textContent=s.message;$('#demoProgress').textContent=`Paso ${demoIndex+1} de ${demoSteps.length}`;$('#demoBack').disabled=demoIndex===0;$('#demoNext').disabled=demoIndex===demoSteps.length-1;}
+const heroSteps=graphSteps('dijkstra');function renderHero(){let s=heroSteps[heroIndex];$('#heroSvg').innerHTML=graphSvg(s,true);}function toggleHero(){if(heroTimer){clearInterval(heroTimer);heroTimer=null;$('#heroPause').textContent='▶ Animar';$('#heroPause').setAttribute('aria-label','Reanudar animación');}else{heroTimer=setInterval(()=>{heroIndex=(heroIndex+1)%heroSteps.length;renderHero();},1250);$('#heroPause').textContent='Ⅱ Pausar';$('#heroPause').setAttribute('aria-label','Pausar animación');}}$('#heroPause').onclick=toggleHero;$('#heroOpen').onclick=()=>openDetail('dijkstra');
+render();renderHero();if(!matchMedia('(prefers-reduced-motion: reduce)').matches)toggleHero();else $('#heroPause').textContent='▶ Animar';const hash=location.hash.match(/^#algoritmo=([a-z0-9]+)$/);if(hash&&ALGORITHMS.some(a=>a.key===hash[1]))openDetail(hash[1]);
+
+</script></body></html>
